@@ -1,0 +1,156 @@
+* {
+    border: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar {
+    background-color: white !important; 
+    box-shadow: 0 8px 12px #3aa4ce83; 
+    position: relative;
+    color: black;
+    padding: 0;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin: 0;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-brand:hover {
+    cursor: pointer;
+    opacity: .5;
+}
+
+.titulo-veterinaria {
+    margin: 0;
+    font-size: 16px;
+    color: rgba(23, 71, 157, 1);
+}
+
+.logo-clinica {
+    height: 70px;
+    width: 75px;
+}
+
+@media screen and (min-width: 768px) {
+    .titulo-veterinaria {
+        font-size: 22px;
+    }
+}  
+
+
+.navbar-toggler {
+    border: 1px solid rgb(129, 126, 126);
+}
+
+.navbar-toggler-icon {
+    filter: invert();
+}
+
+.offcanvas-header {
+    background-color: #0ba1dde7;
+    color: white;
+}
+
+.navbar-nav {
+    gap: 20px;
+}
+
+.nav-item {
+    border-bottom: 1px solid #324851e7 !important;
+}   
+
+.nav-link {
+    color: black !important;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+@media screen and (min-width: 992px) {
+    .nav-item {
+        border: none !important;
+    }
+
+    .nav-link:hover {
+        color: rgb(255, 151, 6) !important;
+        transition: all 0.5s ease !important;
+        cursor: pointer;
+    }
+
+}  
+
+.contenedorImagen {
+    background-image: url(../assets/portada-veterinaria.webp);
+    background-size: cover;
+    background-position: center;
+    height: 45vh;
+    position: relative;
+}
+
+@media screen and (min-width: 768px) {
+    .contenedorImagen {
+        height: 60vh;
+    }
+}  
+
+@media screen and (min-width: 1024px) {
+    .contenedorImagen {
+        height: 80vh;
+    } 
+}  
+
+.contenedorImagen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.tituloImagen {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 90%; 
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.tituloImagen h3 {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(23, 71, 157, 0.7); 
+    padding: 20px 20px; 
+    border-radius: 50px; 
+}
+
+@media screen and (min-width: 768px) {
+    .tituloImagen {
+        width: 600px;
+    }
+}  
+
+.nav-link i.bi-house-fill {
+    color: #007BFF; /* Azul para Inicio */
+  }
+  
+  .nav-link i.bi-people-fill {
+    color: #6C757D; /* Gris oscuro para Nosotros */
+  }
+  
+  .nav-link i.bi-clipboard2-pulse-fill {
+    color: #198754; /* Verde para Login Medico */
+  }
+  
+  .nav-link i.bi-person-vcard {
+    color: #007BFF; /* Azul para Login Paciente */
+  }

@@ -1,0 +1,92 @@
+/* TopBar.css */
+
+.top-bar {
+  background-color: rgba(23, 71, 157, 1);
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+}
+
+.contact-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  margin-left: 50px;
+}
+
+.contact-info span {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.contact-info span:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.contact-info span svg {
+  margin-right: 5px;
+}
+
+.social-links {
+  display: flex;
+  align-items: center;
+}
+
+.social-icon {
+  position: relative; /* Hacer que el contenedor sea relativo para posicionar el ícono */
+  width: 35px; /* Tamaño del ícono */
+  height: 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%; /* Borde redondeado para hacerlo circular */
+  background-color: rgba(242, 234, 234, 0.1); /* Color de fondo gris opaco */
+  transition: background-color 0.3s ease; /* Transición suave para el cambio de color de fondo */
+}
+
+.social-icon svg {
+  position: relative;
+  z-index: 10; /* Asegura que el ícono esté sobre el fondo opaco */
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.819);
+}
+
+.social-links a:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.social-links a:not(:last-child) {
+  margin-right: 10px; /* Espacio entre los enlaces, excepto el último */
+}
+
+@media screen and (max-width: 500px) {
+  .top-bar {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .contact-info {
+    justify-content: center; /* Asegura que el contenido esté centrado en pantallas pequeñas */
+    margin-left: auto;
+  }
+
+  .social-links {
+    margin-left: auto; /* Centrar en pantallas más pequeñas */
+  }
+  
+  .social-links a {
+    font-size: 16px; /* Reducir tamaño de fuente en pantallas más pequeñas si es necesario */
+  }
+}
+
+
