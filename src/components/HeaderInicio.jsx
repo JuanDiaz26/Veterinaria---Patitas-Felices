@@ -10,7 +10,6 @@ import TopBar from './TopBar.jsx';
 const HeaderInicio = () => {
   return (
     <header className="inicio-header">
-      <TopBar />
       <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
         <div className="container-fluid">
           <NavLink className="navbar-brand" to="/">
