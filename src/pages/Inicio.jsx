@@ -1,13 +1,14 @@
 import React from 'react';
 import { Card, Container } from 'react-bootstrap';
-import HeaderInicio from '../components/HeaderInicio';
+import Navbar from '../components/Navbar';
+import PortadaInicio from '../components/PortadaInicio';
 import VoiceflowChat from '../components/ChatBot';
 import Footer from '../components/Footer';
 
 const Inicio = () => {
   return (
     <>
-      <HeaderInicio />
+      <PortadaInicio />
       <main>
         <Container className="main-content">
           {/* Sección de Planes */}

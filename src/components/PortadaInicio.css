@@ -1,0 +1,55 @@
+.contenedorImagen {
+    background-image: url(../assets/portada-veterinaria.webp);
+    background-size: cover;
+    background-position: center;
+    height: 45vh;
+    position: relative;
+}
+
+@media screen and (min-width: 768px) {
+    .contenedorImagen {
+        height: 60vh;
+    }
+}  
+
+@media screen and (min-width: 1024px) {
+    .contenedorImagen {
+        height: 80vh;
+    } 
+}  
+
+.contenedorImagen::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.tituloImagen {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 90%; 
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 10;
+}
+
+.tituloImagen h3 {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    background-color: rgba(23, 71, 157, 0.7); 
+    padding: 20px 20px; 
+    border-radius: 50px; 
+}
+
+@media screen and (min-width: 768px) {
+    .tituloImagen {
+        width: 600px;
+    }
+}  
+
