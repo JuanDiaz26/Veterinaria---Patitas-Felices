@@ -84,18 +84,26 @@
 
 }  
 
-.nav-link i.bi-house-fill {
-    color: #007BFF; /* Azul para Inicio */
+  /* Estilos para el botón de Iniciar Sesión */
+.BotonInicio {
+    background-color: rgba(23, 71, 157, 1);
+    color: white;
+    border: none;
   }
   
-  .nav-link i.bi-people-fill {
-    color: #6C757D; /* Gris oscuro para Nosotros */
+  .BotonInicio:hover {
+    background-color: rgba(23, 70, 157, 0.707); /* Color más oscuro para el hover */
+    color: white;
   }
   
-  .nav-link i.bi-clipboard2-pulse-fill {
-    color: #198754; /* Verde para Login Medico */
+  /* Estilos para el botón de Registrarse */
+  .BotonRegistro {
+    border-color: rgba(23, 71, 157, 1);
+    color: rgba(23, 71, 157, 1);
   }
   
-  .nav-link i.bi-person-vcard {
-    color: #007BFF; /* Azul para Login Paciente */
+  .BotonRegistro:hover {
+    background-color: rgba(23, 71, 157, 1);
+    color: white;
   }
+  
