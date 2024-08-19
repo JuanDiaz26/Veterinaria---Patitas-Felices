@@ -1,55 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto:wght@400&display=swap');
+
 .contenedorImagen {
-    background-image: url(../assets/portada-veterinaria.webp);
-    background-size: cover;
-    background-position: center;
-    height: 45vh;
-    position: relative;
-}
-
-@media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    flex-wrap: wrap; 
+    box-shadow: 0 8px 12px #3aa4ce83; 
+  }
+  
+  .tituloImagen {
+    max-width: 42%;
+    margin-right: 20px;
+  }
+  
+  .tituloImagen h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: rgba(23, 71, 157, 1);
+  }
+  
+  .tituloImagen p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .tituloImagen Button {
+    font-size: 1rem;
+  }
+  
+  .contenedorImagenVete {
+    max-width: 50%;
+    text-align: right; /* Para alinear la imagen a la derecha */
+  }
+  
+  .contenedorImagenVete img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px; /* Añade bordes redondeados si lo deseas */
+  }
+  
+  /* Responsividad */
+  @media (max-width: 992px) {
     .contenedorImagen {
-        height: 60vh;
+      flex-direction: column;
+      text-align: center; /* Centra el texto en pantallas pequeñas */
+      gap: 20px;
+      padding: 30px;
     }
-}  
-
-@media screen and (min-width: 1024px) {
-    .contenedorImagen {
-        height: 80vh;
-    } 
-}  
-
-.contenedorImagen::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.tituloImagen {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 90%; 
-    transform: translateX(-50%);
-    text-align: center;
-    z-index: 10;
-}
-
-.tituloImagen h3 {
-    font-size: 24px;
-    color: white;
-    font-weight: bold;
-    background-color: rgba(23, 71, 157, 0.7); 
-    padding: 20px 20px; 
-    border-radius: 50px; 
-}
-
-@media screen and (min-width: 768px) {
+  
     .tituloImagen {
-        width: 600px;
+      max-width: 100%;
+      margin-right: 0;
+      margin-bottom: 20px; /* Espacio entre el texto y la imagen en móvil */
     }
-}  
-
+  
+    .contenedorImagenVete {
+      max-width: 100%;
+      text-align: center; /* Centra la imagen en pantallas pequeñas */
+    }
+  }
+  
