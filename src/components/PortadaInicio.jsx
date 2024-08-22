@@ -15,12 +15,10 @@ const PortadaInicio = () => {
           Conoce a nuestros especialistas
         </Button>
       </div>
-      <div className="contenedorImagenVete">
-        <img src="../src/assets/portada-vete.png" alt="Portada Veterinaria" />
-      </div>
     </div>
   );
 };
+
 
 
 export default PortadaInicio;
