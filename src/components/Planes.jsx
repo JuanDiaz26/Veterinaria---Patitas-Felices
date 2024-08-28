@@ -1,102 +1,89 @@
-import React from 'react';
-import { Card, Button, Container, Row, Col } from 'react-bootstrap';
-import '../components/Planes.css';
+import React, { useState } from 'react';
+import './Planes.css'; // Asegúrate de que los estilos específicos estén en el archivo CSS
 
-// const Planes = () => {
-//   return (
-//     <>
-//     <div>
-//     <h3 className='TituloPlanes'><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-//         className="bi bi-record-fill PuntoColor" viewBox="0 0 20 20">
-//         <path fillRule="evenodd" d="M8 13A5 5 0 1 0 8 3a5 5 0 0 0 0 10" />
-//       </svg>Seguro para ellos</h3>
-//     <CardGroup className='CardGroup'> 
-//       <Card className='CardsPlanes'> 
-//         <Card.Img variant="top" src="../src/assets/gatos-bebes.webp" />
-//         <Card.Body>
-//           <Card.Title>Primeros pasos</Card.Title>
-//           <Card.Text>
-//           Servicios para mascotas de 0 a 5 años.
-//           </Card.Text>
-//         </Card.Body>
-//         <Card.Footer>
-//           <small className="text-muted">Last updated 3 mins ago</small>
-//         </Card.Footer>
-//       </Card>
-//       <Card className='CardsPlanes'> 
-//         <Card.Img variant="top" src="../src/assets/gatos-bebes.webp" />
-//         <Card.Body>
-//           <Card.Title>Primeros pasos</Card.Title>
-//           <Card.Text>
-//           Servicios para mascotas de 0 a 5 años.
-//           </Card.Text>
-//         </Card.Body>
-//         <Card.Footer>
-//           <small className="text-muted">Last updated 3 mins ago</small>
-//         </Card.Footer>
-//       </Card>
-//       <Card className='CardsPlanes'> 
-//         <Card.Img variant="top" src="../src/assets/gatos-bebes.webp" />
-//         <Card.Body>
-//           <Card.Title>Primeros pasos</Card.Title>
-//           <Card.Text>
-//           Servicios para mascotas de 0 a 5 años.
-//           </Card.Text>
-//         </Card.Body>
-//         <Card.Footer>
-//           <small className="text-muted">Last updated 3 mins ago</small>
-//         </Card.Footer>
-//       </Card>
-//     </CardGroup>
-//     </div>
-//     </>
-//   );
-// }
+const CheckIcon = () => (
+  <svg className="check-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="20 6 9 17 4 12"></polyline>
+  </svg>
+);
 
-const planes = [
+const plans = [
   {
-    title: 'Plan Básico',
-    price: '$10/mes',
-    features: ['Acceso a 10 cursos', 'Soporte básico', 'Certificado al finalizar'],
+    name: 'Primeros pasos',
+    ageRange: 'de 0 a 5 años',
+    features: [
+      'Vacunaciones esenciales',
+      'Chequeos de crecimiento',
+      'Asesoramiento nutricional',
+      'Desparasitación',
+    ],
+    buttonColor: '#4CAF50', // Verde
   },
   {
-    title: 'Plan Pro',
-    price: '$25/mes',
-    features: ['Acceso ilimitado', 'Soporte premium', 'Certificados personalizados'],
+    name: 'Madurando',
+    ageRange: 'de 5 a 10 años',
+    features: [
+      'Chequeos anuales',
+      'Control de peso',
+      'Limpieza dental',
+      'Análisis de sangre',
+    ],
+    buttonColor: '#2196F3', // Azul
   },
   {
-    title: 'Plan Empresarial',
-    price: '$50/mes',
-    features: ['Acceso ilimitado para equipos', 'Soporte dedicado', 'Consultorías'],
+    name: 'Adultos',
+    ageRange: 'de más de 10 años',
+    features: [
+      'Chequeos semestrales',
+      'Manejo de enfermedades crónicas',
+      'Terapia física',
+      'Cuidados geriátricos especializados',
+    ],
+    buttonColor: '#9C27B0', // Púrpura
   },
 ];
 
-const Planes = () => {
+function Planes() {
+  const [hoveredCard, setHoveredCard] = useState(null);
+
   return (
-    <Container className="my-5">
-      <Row>
-        {planes.map((plan, index) => (
-          <Col md={4} key={index} className="mb-4">
-            <Card className="h-100 shadow-sm">
-              <Card.Body>
-                <Card.Title className="plan-title text-center mb-3">{plan.title}</Card.Title>
-                <Card.Subtitle className="plan-price text-center mb-4">{plan.price}</Card.Subtitle>
-                {/* Cambiar el as de Card.Text a "div" */}
-                <Card.Text as="div">
-                  <ul className="list-unstyled">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="mb-2">{feature}</li>
-                    ))}
-                  </ul>
-                </Card.Text>
-                <Button variant="primary" className="w-100">Suscribirse</Button>
-              </Card.Body>
-            </Card>
-          </Col>
+    <div className="veterinary-plans">
+      <h1 className="main-title">Elige el Mejor Plan para tu Amigo de Cuatro Patas</h1>
+      <div className="container">
+        {plans.map((plan, index) => (
+          <div
+            key={plan.name}
+            className={`card ${hoveredCard === index ? 'card-hovered' : ''}`}
+            onMouseEnter={() => setHoveredCard(index)}
+            onMouseLeave={() => setHoveredCard(null)}
+          >
+            <h2 className="plan-name">{plan.name}</h2>
+            <p className="plan-description">
+              Servicios para mascotas<br />{plan.ageRange}
+            </p>
+            <ul className="feature-list">
+              {plan.features.map((feature, featureIndex) => (
+                <li key={featureIndex} className="feature-item">
+                  <CheckIcon />
+                  {feature}
+                </li>
+              ))}
+            </ul>
+            <button 
+              className={`choose-button ${hoveredCard === index ? 'button-hovered' : ''}`}
+              style={{ 
+                '--button-color': plan.buttonColor,
+                '--button-hover-color': hoveredCard === index ? '#ffffff' : plan.buttonColor,
+                '--text-hover-color': hoveredCard === index ? plan.buttonColor : '#ffffff'
+              }}
+            >
+              Elegir plan
+            </button>
+          </div>
         ))}
-      </Row>
-    </Container>
+      </div>
+    </div>
   );
-};
+}
 
 export default Planes;
