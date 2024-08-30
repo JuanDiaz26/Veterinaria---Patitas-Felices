@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import Planes from '../components/Planes';
 import '../pages/Inicio.css';
 import LogoBanner from '../components/LogoBanner';
+import CuponBanner from '../components/CuponBanner';
 
 const Inicio = () => {
   return (
@@ -14,6 +15,7 @@ const Inicio = () => {
       <Planes />
       </main>
       <LogoBanner />
+      <CuponBanner /> 
       <VoiceflowChat />
       <Footer />
     </>
