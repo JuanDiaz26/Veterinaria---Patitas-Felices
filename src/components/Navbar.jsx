@@ -42,30 +42,30 @@ const Navbar = () => {
         ></button>
       </div>
       <div className="offcanvas-body">
-        <ul className="navbar-nav justify-content-center flex-grow-1 pe-3">
+        <ul className="navbar-nav justify-content-center flex-grow-1 pe-3 ">
+          <div className="divnav">
           <li className="nav-item">
             <NavLink className="nav-link" to="/">Inicio</NavLink>
           </li>
           <li className="nav-item">
             <NavLink className="nav-link" to="/nosotros">Nosotros</NavLink>
-          </li>
+          </li> 
           <li className="nav-item">
-            <NavLink className="nav-link" to="/contacto">Login Medico</NavLink>
+            <NavLink className="nav-link" to="/productos">Productos</NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/paciente">Login Paciente</NavLink>
-          </li>
+          </div> 
+          <div className="d-flex ContenedorSesion">
+            <NavLink className="btn BotonRegistro me-2" to="/registrarse">
+              Registrarse
+            </NavLink>
+            <NavLink className="btn BotonInicio" to="/iniciar-sesion">
+              Iniciar Sesión
+            </NavLink>
+          </div>
         </ul>
       </div>
     </div>
-    <div className="d-flex">
-      <NavLink className="btn BotonRegistro me-2" to="/registrarse">
-        Registrarse
-      </NavLink>
-      <NavLink className="btn BotonInicio" to="/iniciar-sesion">
-        Iniciar Sesión
-      </NavLink>
-    </div>
+
   </div>
 </nav>
   );

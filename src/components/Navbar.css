@@ -57,10 +57,6 @@
     color: white;
 }
 
-.navbar-nav {
-    gap: 20px;
-}
-
 .nav-item {
     border-bottom: 1px solid #324851e7 !important;
 }   
@@ -75,17 +71,41 @@
     .nav-item {
         border: none !important;
     }
-
+    
     .nav-link:hover {
         color: rgb(255, 151, 6) !important;
         transition: all 0.5s ease !important;
         cursor: pointer;
     }
 
-}  
+    .ContenedorSesion {
+        position: absolute;
+        right: 10px;
+    }
+
+    .divnav {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+}
+
+.navbar-nav {
+    gap: 60px;
+    position: relative;
+}
+
+.divnav {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    margin-right: 50px;
+}
+
 
   /* Estilos para el botón de Iniciar Sesión */
-.BotonInicio {
+    .BotonInicio {
     background-color: rgba(23, 71, 157, 1);
     color: white;
     border: none;
@@ -106,4 +126,6 @@
     background-color: rgba(23, 71, 157, 1);
     color: white;
   }
+
+
   
