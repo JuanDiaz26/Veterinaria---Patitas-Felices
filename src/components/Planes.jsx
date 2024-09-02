@@ -1,89 +1,79 @@
-import React, { useState } from 'react';
-import './Planes.css'; // Asegúrate de que los estilos específicos estén en el archivo CSS
+import React from 'react';
+import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import { FaCheck } from 'react-icons/fa';
+import './Planes.css'; // Asegúrate de tener los estilos en este archivo
+import { Link } from 'react-router-dom'; 
 
-const CheckIcon = () => (
-  <svg className="check-icon" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
-    <polyline points="20 6 9 17 4 12"></polyline>
-  </svg>
-);
-
-const plans = [
+const planes = [
   {
-    name: 'Primeros pasos',
-    ageRange: 'de 0 a 5 años',
-    features: [
-      'Vacunaciones esenciales',
-      'Chequeos de crecimiento',
-      'Asesoramiento nutricional',
-      'Desparasitación',
+    id: 1,
+    nombre: 'Plan Básico',
+    descripcion: 'Ideal para el cuidado general de tu mascota.',
+    caracteristicas: [
+      'Consulta veterinaria básica',
+      'Vacunas anuales',
+      'Control de peso'
     ],
-    buttonColor: '#4CAF50', // Verde
+    claseBoton: 'btn-primary', // Clase de color para el botón
   },
   {
-    name: 'Madurando',
-    ageRange: 'de 5 a 10 años',
-    features: [
-      'Chequeos anuales',
-      'Control de peso',
-      'Limpieza dental',
-      'Análisis de sangre',
+    id: 2,
+    nombre: 'Plan Avanzado',
+    descripcion: 'Para un cuidado más completo y especializado.',
+    caracteristicas: [
+      'Consulta veterinaria avanzada',
+      'Vacunas y desparasitaciones',
+      'Chequeo dental'
     ],
-    buttonColor: '#2196F3', // Azul
+    claseBoton: 'btn-success', // Clase de color para el botón
   },
   {
-    name: 'Adultos',
-    ageRange: 'de más de 10 años',
-    features: [
-      'Chequeos semestrales',
-      'Manejo de enfermedades crónicas',
-      'Terapia física',
-      'Cuidados geriátricos especializados',
+    id: 3,
+    nombre: 'Plan Premium',
+    descripcion: 'Todo lo que tu mascota necesita para estar saludable.',
+    caracteristicas: [
+      'Consultas ilimitadas',
+      'Vacunas, desparasitaciones y chequeos completos',
+      'Atención de emergencia 24/7'
     ],
-    buttonColor: '#9C27B0', // Púrpura
-  },
+    claseBoton: 'btn-danger', 
+  }
 ];
 
-function Planes() {
-  const [hoveredCard, setHoveredCard] = useState(null);
+const Planes = () => {
 
   return (
-    <div className="veterinary-plans">
-      <h1 className="main-title">Elige el Mejor Plan para tu Amigo de Cuatro Patas</h1>
-      <div className="container">
-        {plans.map((plan, index) => (
-          <div
-            key={plan.name}
-            className={`card ${hoveredCard === index ? 'card-hovered' : ''}`}
-            onMouseEnter={() => setHoveredCard(index)}
-            onMouseLeave={() => setHoveredCard(null)}
-          >
-            <h2 className="plan-name">{plan.name}</h2>
-            <p className="plan-description">
-              Servicios para mascotas<br />{plan.ageRange}
-            </p>
-            <ul className="feature-list">
-              {plan.features.map((feature, featureIndex) => (
-                <li key={featureIndex} className="feature-item">
-                  <CheckIcon />
-                  {feature}
-                </li>
-              ))}
-            </ul>
-            <button 
-              className={`choose-button ${hoveredCard === index ? 'button-hovered' : ''}`}
-              style={{ 
-                '--button-color': plan.buttonColor,
-                '--button-hover-color': hoveredCard === index ? '#ffffff' : plan.buttonColor,
-                '--text-hover-color': hoveredCard === index ? plan.buttonColor : '#ffffff'
-              }}
-            >
-              Elegir plan
-            </button>
-          </div>
-        ))}
-      </div>
+    <div className="planes-veterinarios">
+      <div className="titulo-principal">Nuestros Planes</div>
+      <Container>
+        <Row>
+          {planes.map((plan) => (
+            <Col md={4} sm={6} key={plan.id} className="mb-4">
+              <Card className="card">
+                <Card.Body className="card-body">
+                  <Card.Title className="nombre-plan">{plan.nombre}</Card.Title>
+                  <Card.Text className="descripcion-plan">{plan.descripcion}</Card.Text>
+                  <ul className="lista-caracteristicas">
+                    {plan.caracteristicas.map((caracteristica, index) => (
+                      <li className="item-caracteristica" key={index}>
+                        <FaCheck className="icono-check" /> {caracteristica}
+                      </li>
+                    ))}
+                  </ul>
+                  <Link 
+                  to="/detalle-planes" 
+                  className="boton-elegir btn-primary" // Cambia la clase según tu diseño
+                >
+                  Elegir Plan
+                </Link>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
-}
+};
 
 export default Planes;

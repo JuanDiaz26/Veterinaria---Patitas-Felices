@@ -1,10 +1,10 @@
-.veterinary-plans {
+.planes-veterinarios {
   padding: 2rem;
   background-color: #f5f5f5;
   width: 100%;
 }
 
-.main-title {
+.titulo-principal {
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
@@ -17,29 +17,34 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
   gap: 2rem;
 }
 
 .card {
-  flex: 1 1 300px;
-  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-width: 330px; /* Establece un ancho fijo para todas las tarjetas */
+  min-height: 400px; /* Establece una altura fija para todas las tarjetas */
   padding: 1.5rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
   background-color: #ffffff;
   color: #333333;
-  display: flex;
-  flex-direction: column;
 }
 
-.card-hovered {
+.tarjeta:hover {
   transform: scale(1.05);
   background-color: #f0f0f0;
 }
 
-.plan-name {
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.nombre-plan {
   font-size: 1.75rem;
   font-weight: bold;
   margin-bottom: 0.5rem;
@@ -47,7 +52,7 @@
   color: #1a1a1a;
 }
 
-.plan-description {
+.descripcion-plan {
   font-size: 1rem;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -55,14 +60,14 @@
   line-height: 1.4;
 }
 
-.feature-list {
+.lista-caracteristicas {
   list-style-type: none;
   padding: 0;
   margin-bottom: 1.5rem;
   flex-grow: 1;
 }
 
-.feature-item {
+.item-caracteristica {
   display: flex;
   align-items: center;
   margin-bottom: 0.75rem;
@@ -70,34 +75,46 @@
   color: #333333;
 }
 
-.check-icon {
+.icono-check {
   margin-right: 0.5rem;
-  color: #4CAF50;
+  color: #4caf50;
   width: 18px;
   height: 18px;
 }
 
-.choose-button {
+.boton-elegir {
+  display: inline-block; /* Hace que el enlace se comporte como un botón en línea */
   width: 100%;
   padding: 0.75rem;
   border: none;
   border-radius: 0.25rem;
-  background-color: var(--button-color);
   color: #ffffff;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: auto;
+  text-align: center;
+  text-decoration: none; /* Elimina el subrayado del enlace */
 }
 
-.choose-button.button-hovered {
-  background-color: rgba(128, 128, 128, 0.2);
-  color: var(--text-hover-color);
+.boton-elegir.btn-primary {
+  background-color: #007bff; /* Azul */
+}
+
+.boton-elegir.btn-success {
+  background-color: #28a745; /* Verde */
+}
+
+.boton-elegir.btn-danger {
+  background-color: #dc3545; /* Rojo */
+}
+
+.boton-elegir:hover {
+  opacity: 0.8;
 }
 
 @media (max-width: 768px) {
-  .main-title {
+  .titulo-principal {
     font-size: 2rem;
   }
 }
