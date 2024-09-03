@@ -1,5 +1,5 @@
 import React from 'react';
-import './PortadaInicio.css'; // Asegúrate de que los estilos específicos estén en el archivo CSS
+import './PortadaInicio.css'; 
 import Button from 'react-bootstrap/Button';
 
 const PortadaInicio = () => {

@@ -23,8 +23,8 @@
 .card {
   display: flex;
   flex-direction: column;
-  min-width: 330px; /* Establece un ancho fijo para todas las tarjetas */
-  min-height: 400px; /* Establece una altura fija para todas las tarjetas */
+  min-width: 330px; 
+  min-height: 400px; 
   padding: 1.5rem;
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -83,7 +83,7 @@
 }
 
 .boton-elegir {
-  display: inline-block; /* Hace que el enlace se comporte como un botón en línea */
+  display: inline-block;
   width: 100%;
   padding: 0.75rem;
   border: none;
@@ -94,7 +94,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
-  text-decoration: none; /* Elimina el subrayado del enlace */
+  text-decoration: none; 
 }
 
 .boton1 {
