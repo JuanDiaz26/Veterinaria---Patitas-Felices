@@ -11,15 +11,14 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 55vh; /* O ajusta según el diseño */
-  width: 100%; /* Ocupa todo el ancho disponible */
+  height: 55vh; 
+  width: 100%; 
 }
 
-/* Estilo para pantallas más pequeñas */
 @media (max-width: 768px) {
   .contenedorImagen {
-    flex-direction: column; /* Coloca los elementos en columna en pantallas pequeñas */
-    height: auto; /* Deja que el contenedor se ajuste automáticamente */
+    flex-direction: column;
+    height: auto; 
   }
 
   .tituloImagen {
@@ -75,6 +74,14 @@
   color: #333;
 }
 
-.tituloImagen Button {
-  font-size: 1rem;
+.botonPortada {
+  background-color: #4836ec !important;
+  border: none;
+  padding: 15px !important;
+}
+
+.botonPortada:hover {
+  opacity: 0.8;
+  transform: scale(1.03);
+  transition: all 0.3s ease;
 }

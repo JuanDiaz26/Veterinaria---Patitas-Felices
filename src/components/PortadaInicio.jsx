@@ -11,7 +11,7 @@ const PortadaInicio = () => {
           En Patitas Felices, nos dedicamos a ofrecer el mejor cuidado para tus mascotas, 
           con especialistas comprometidos y servicios personalizados.
         </p>
-        <Button variant="primary" href="#especialistas">
+        <Button className="botonPortada" href="#especialistas">
           Conoce a nuestros especialistas
         </Button>
       </div>

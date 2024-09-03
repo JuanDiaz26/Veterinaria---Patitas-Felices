@@ -33,9 +33,9 @@
   color: #333333;
 }
 
-.tarjeta:hover {
+.card:hover {
   transform: scale(1.05);
-  background-color: #f0f0f0;
+  background-color: #f7f7ff;
 }
 
 .card-body {
@@ -97,20 +97,21 @@
   text-decoration: none; /* Elimina el subrayado del enlace */
 }
 
-.boton-elegir.btn-primary {
-  background-color: #007bff; /* Azul */
+.boton1 {
+  background-color: #3b82f6;
 }
 
-.boton-elegir.btn-success {
-  background-color: #28a745; /* Verde */
+.boton2 {
+  background-color: #10b981;
 }
 
-.boton-elegir.btn-danger {
-  background-color: #dc3545; /* Rojo */
+.boton3 {
+  background-color: #3b82f6;
 }
 
 .boton-elegir:hover {
-  opacity: 0.8;
+  opacity: 0.5;
+  transform: scale(1.03);
 }
 
 @media (max-width: 768px) {

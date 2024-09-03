@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, Button, Container, Row, Col } from 'react-bootstrap';
 import { FaCheck } from 'react-icons/fa';
-import './Planes.css'; // Asegúrate de tener los estilos en este archivo
+import './Planes.css'; 
 import { Link } from 'react-router-dom'; 
 
 const planes = [
@@ -14,7 +14,7 @@ const planes = [
       'Vacunas anuales',
       'Control de peso'
     ],
-    claseBoton: 'btn-primary', // Clase de color para el botón
+    claseBoton: 'boton1', 
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ const planes = [
       'Vacunas y desparasitaciones',
       'Chequeo dental'
     ],
-    claseBoton: 'btn-success', // Clase de color para el botón
+    claseBoton: 'boton2',
   },
   {
     id: 3,
@@ -36,7 +36,7 @@ const planes = [
       'Vacunas, desparasitaciones y chequeos completos',
       'Atención de emergencia 24/7'
     ],
-    claseBoton: 'btn-danger', 
+    claseBoton: 'boton3', 
   }
 ];
 
@@ -62,7 +62,7 @@ const Planes = () => {
                   </ul>
                   <Link 
                   to="/detalle-planes" 
-                  className="boton-elegir btn-primary" // Cambia la clase según tu diseño
+                  className={`boton-elegir ${plan.claseBoton}`}
                 >
                   Elegir Plan
                 </Link>
