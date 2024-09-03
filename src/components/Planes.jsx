@@ -44,7 +44,7 @@ const Planes = () => {
 
   return (
     <div className="planes-veterinarios">
-      <div className="titulo-principal">Nuestros Planes</div>
+      <div className="titulo-principal"><img width="35" height="35" className="iconoVeteTit" src="https://img.icons8.com/color/48/veterinarian.png" alt="veterinarian"/> Nuestros Planes</div>
       <Container>
         <Row>
           {planes.map((plan) => (

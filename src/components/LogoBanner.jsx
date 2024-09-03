@@ -7,7 +7,6 @@ const logos = [
   { src: '../src/assets/whiskas.png', alt: 'Logo 3' },
   { src: '../src/assets/nutrique.png', alt: 'Logo 4' },
   { src: '../src/assets/prince.png', alt: 'Logo 5' },
-  { src: '../src/assets/eukanuba.png', alt: 'Logo 6' },
 ];
 
 const LogoBanner = () => {
@@ -23,6 +22,7 @@ const LogoBanner = () => {
 
   return (
     <div className="logo-banner">
+      <div className="titulo-principal"><img width="35" height="35" className="iconoVeteTit" src="https://img.icons8.com/color/48/veterinarian.png" alt="veterinarian"/> Marcas Destacadas</div>
       <div className="logo-track">
         {logos.map((logo, index) => (
           <div className="logo-slide" key={index}>

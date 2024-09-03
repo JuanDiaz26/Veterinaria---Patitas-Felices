@@ -106,7 +106,6 @@
   opacity: 0.7; 
 }
 
-/* Media Queries para Responsividad */
 @media (max-width: 1000px) {
   .footer-content {
     width: 100%; 
@@ -128,14 +127,14 @@
   }
 
   .footer-logo {
-    height: 40px; /* Ajuste para pantallas medianas */
+    height: 40px; 
   }
 }
 
 @media (max-width: 768px) {
 
   .footer-links {
-    width: 100%; /* Ajusta el ancho para evitar desbordes */
+    width: 100%; 
     justify-content: center;
     align-items: center;
   }

@@ -12,10 +12,10 @@ const Inicio = () => {
       <PortadaInicio />
       <main className='ContenedorPrincipal'>
       <Planes />
-      </main>
       <LogoBanner />
       <CuponBanner /> 
       <VoiceflowChat />
+      </main>
     </>
   );
 };

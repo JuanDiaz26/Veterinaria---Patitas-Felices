@@ -1,34 +1,41 @@
 .logo-banner {
     overflow: hidden;
     width: 100%;
-    background-color: #f7f7f7; /* Color de fondo del banner */
-    padding: 10px 0; /* Espaciado vertical */
+    background-color: #f7f7f7;
+    padding: 10px 0; 
+    display: flex;
+    flex-direction: column;
   }
   
   .logo-track {
     display: flex;
-    width: calc(100% * 2); /* Doble del tamaño para permitir desplazamiento continuo */
+    width: calc(100% * 2); 
     animation: scroll 20s linear infinite;
+  }
+
+  @media (max-width: 768px) {
+    .logo-track {
+      animation: scroll 7s linear infinite;
+    }
   }
   
   .logo-slide {
     flex: 0 0 auto;
-    width: auto; /* Ajusta el ancho según la cantidad de logos */
-    padding: 10px 40px; /* Espaciado alrededor de los logos */
+    width: auto; 
+    padding: 10px 40px; 
   }
   
   .logo-slide img {
     width: 90px;
     height: 55px;
-    filter: grayscale(100%); /* Aplica un filtro de escala de grises si lo deseas */
   }
-  
+
   @keyframes scroll {
     0% {
       transform: translateX(0);
     }
     100% {
-      transform: translateX(-50%); /* Ajusta el porcentaje según el número de logos */
+      transform: translateX(-50%); 
     }
   }
   
