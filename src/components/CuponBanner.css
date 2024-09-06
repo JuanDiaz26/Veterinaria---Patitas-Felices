@@ -128,3 +128,7 @@ form {
 .modal-header .btn-close {
   filter: invert(1);
 }
+
+.alerta-cupon {
+  margin-top: 15px;
+}

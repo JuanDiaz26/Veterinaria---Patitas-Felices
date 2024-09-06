@@ -1,22 +1,25 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
-import { Modal, Button, Form } from 'react-bootstrap';
+import { Modal, Button, Form, Alert} from 'react-bootstrap';
 import './CuponBanner.css';
 
-// Componente CuponBanner muestra un banner promocional con un formulario para obtener un cupón
 const CuponBanner = () => {
-  // Estado para controlar la visibilidad del modal
+  // Estados para controlar el formulario y las alertas
   const [showModal, setShowModal] = useState(false);
-  // Estado para los datos del formulario
   const [formData, setFormData] = useState({
-    email: '', // Email del usuario
-    nombre: '', // Nombre del usuario
-    nombreMascota: '', // Nombre opcional de la mascota
+    email: '',
+    nombre: '',
+    nombreMascota: '',
   });
+
+  const [mostrarAlerta, setMostrarAlerta] = useState(false);
+  const [mensajeAlerta, setMensajeAlerta] = useState('');
+  const [enviando, setEnviando] = useState(false);
 
   // Función para manejar el envío del formulario
   const enviarCuponDescuento = (e) => {
-    e.preventDefault(); // Prevenir la recarga de la página
+    e.preventDefault();
+    setEnviando(true);
 
     // Parámetros que serán enviados por correo
     const templateParams = {
@@ -24,23 +27,28 @@ const CuponBanner = () => {
       to_name: formData.nombre,
     };
 
-    // Aquí se realiza el envío del correo con EmailJS
-    emailjs.send('service_3xbm9lq', 'template_05k0itk', templateParams, '0RggoBdDqegZZ0qNg')
+    // Envío del correo con EmailJS
+    emailjs
+      .send('service_3xbm9lq', 'template_05k0itk', templateParams, '0RggoBdDqegZZ0qNg')
       .then(() => {
-        alert('¡Código de descuento enviado a tu correo!');
-        setShowModal(false); // Cierra el modal
-        setFormData({ email: '', nombre: '', nombreMascota: '' }); // Reinicia el formulario
+        setMensajeAlerta('¡Código de descuento enviado a tu correo!');
+        setMostrarAlerta(true);
+        setShowModal(false);
+        setFormData({ email: '', nombre: '', nombreMascota: '' });
+        setEnviando(false);
       })
       .catch(() => {
-        alert('Hubo un error al enviar el código de descuento. Intenta nuevamente.');
+        setMensajeAlerta('Hubo un error al enviar el código de descuento. Intenta nuevamente.');
+        setMostrarAlerta(true);
+        setEnviando(false);
       });
   };
 
   // Maneja los cambios de los inputs del formulario
   const handleChange = (e) => {
     setFormData({
-      ...formData, // Copiar los datos actuales
-      [e.target.name]: e.target.value, // Actualiza solo el campo modificado
+      ...formData,
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -48,6 +56,18 @@ const CuponBanner = () => {
     <div className="promo-banner">
       <h2>¡Completá tus datos y recibí tu cupón de 15% OFF en tu primera compra!</h2>
       <Button onClick={() => setShowModal(true)}>¡Quiero mi cupón!</Button>
+
+      {/* Mostrar alerta si hay un mensaje */}
+      {mostrarAlerta && (
+        <Alert
+          variant={mensajeAlerta.includes('error') ? 'danger' : 'success'}
+          className="alerta-cupon"
+          onClose={() => setMostrarAlerta(false)}
+          dismissible
+        >
+          {mensajeAlerta}
+        </Alert>
+      )}
 
       {/* Modal con el formulario */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -91,8 +111,8 @@ const CuponBanner = () => {
               />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
-              Enviar cupón
+            <Button variant="primary" type="submit" disabled={enviando}>
+              {enviando ? 'Enviando...' : 'Enviar cupón'}
             </Button>
           </Form>
         </Modal.Body>
