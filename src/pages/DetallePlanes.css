@@ -1,0 +1,80 @@
+.detalle-planes {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .alerta-detalle {
+    margin-top: 15px;
+    background-color: #10b981;
+    color: white;
+    border: none;
+  }
+  
+  .alerta-detalle.alert-danger {
+    background-color: #f44336; /* Color rojo para mensajes de error */
+  }
+  
+  .boton-enviar {
+    background-color: #3b82f6;
+    border-color: #3b82f6;
+  }
+  
+  .boton-enviar:disabled {
+    background-color: #3b82f6;
+    opacity: 0.7;
+  }
+  
+  .boton-enviar:hover {
+    background-color: #2563eb; /* Un tono más oscuro del azul */
+    border-color: #2563eb;
+  }
+
+  
+  .cards-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1rem; /* equivalente a space-y-4 */
+    padding: 20px;
+  }
+  
+  .cardP {
+    display: flex;
+    height: 100px; /* equivalente a h-24 */
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    background-color: white;
+  }
+  
+  .card-color-line {
+    width: 0.25rem;
+  }
+  
+  .card-color-line.red { background-color: #ef4444; }
+  .card-color-line.blue { background-color: #3b82f6; }
+  .card-color-line.green { background-color: #22c55e; }
+  
+  .card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.75rem;
+  }
+  
+  .card-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  
+  .card-description {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0.25rem 0 0;
+  }
+  
+  

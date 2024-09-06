@@ -1,137 +1,190 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
+import './DetallePlanes.css'; // Asegúrate de enlazar el archivo CSS correctamente.
 
 const DetallePlanes = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
+  const [formulario, setFormulario] = useState({
+    nombre: '',
+    correo: '',
+    telefono: '',
+    mensaje: '',
+    plan: '', // Campo para el select de planes
   });
-  const [showAlert, setShowAlert] = useState(false);
-  const [alertMessage, setAlertMessage] = useState('');
-  const [isSending, setIsSending] = useState(false);
 
-  const handleChange = (e) => {
+  const [mostrarAlerta, setMostrarAlerta] = useState(false);
+  const [mensajeAlerta, setMensajeAlerta] = useState('');
+  const [enviando, setEnviando] = useState(false);
+
+  const manejarCambio = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
+    setFormulario({
+      ...formulario,
       [name]: value,
     });
   };
 
-  const handleSubmit = (e) => {
+  const manejarEnvio = (e) => {
     e.preventDefault();
-    setIsSending(true);
+    setEnviando(true);
 
-    // Parámetros que coinciden con las variables del template de EmailJS
-    const templateParams = {
-      name: formData.name, // Nombre del usuario ingresado en el formulario
-      to_email: formData.email, // Email ingresado por el usuario
-      phone: formData.phone, // Teléfono si se necesita enviar
-      message: formData.message, // Mensaje escrito por el usuario
+    // Parámetros para el servicio de email
+    const parametros = {
+      to_name: formulario.nombre,
+      to_email: formulario.correo,
+      to_plan: formulario.plan, // Aquí se envía el plan seleccionado
     };
 
     // Ajusta con tus credenciales de EmailJS
     emailjs
-      .send('service_3xbm9lq', 'template_909ubk6', templateParams, '0RggoBdDqegZZ0qNg')
+      .send('service_3xbm9lq', 'template_909ubk6', parametros, '0RggoBdDqegZZ0qNg')
       .then((response) => {
-        setIsSending(false);
-        setAlertMessage(
-          'Consulta enviada correctamente. Te contactaremos pronto.'
-        );
-        setShowAlert(true);
-        // Reiniciar formulario después de enviar
-        setFormData({
-          name: '',
-          email: '',
-          phone: '',
-          message: '',
+        setEnviando(false);
+        setMensajeAlerta('Consulta enviada correctamente. Te contactaremos pronto.');
+        setMostrarAlerta(true);
+        setFormulario({
+          nombre: '',
+          correo: '',
+          telefono: '',
+          mensaje: '',
+          plan: '',
         });
       })
       .catch((error) => {
-        setIsSending(false);
-        setAlertMessage('Hubo un error al enviar la consulta. Inténtalo de nuevo.');
-        setShowAlert(true);
-        console.error('Error sending email:', error);
+        setEnviando(false);
+        setMensajeAlerta('Hubo un error al enviar la consulta. Inténtalo de nuevo.');
+        setMostrarAlerta(true);
+        console.error('Error al enviar:', error);
       });
   };
 
   return (
-    <Container className="mt-4">
-      <Row>
-        <Col md={6} className="offset-md-3">
-          <h2 className="text-center mb-4">Detalle de Planes</h2>
-          <p className="text-center">
-            Aquí encontrarás información detallada sobre nuestros planes para el
-            cuidado de tus mascotas. Completa el formulario a continuación para
-            más información.
-          </p>
-          {showAlert && (
-            <Alert
-              variant={alertMessage.includes('error') ? 'danger' : 'success'}
-            >
-              {alertMessage}
-            </Alert>
-          )}
-          <Form onSubmit={handleSubmit}>
-            <Form.Group controlId="formName">
-              <Form.Label>Nombre</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Ingresa tu nombre"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+    <>
+      <Container className="mt-4 detalle-planes">
+        <Row>
+          <Col md={6} className="offset-md-3">
+            <h2 className="text-center mb-4">Detalle de Planes</h2>
+            <p className="text-center">
+              Aquí encontrarás información detallada sobre nuestros planes para el
+              cuidado de tus mascotas. Completa el formulario a continuación para
+              más información.
+            </p>
+            {mostrarAlerta && (
+              <Alert
+                variant={mensajeAlerta.includes('error') ? 'danger' : 'success'}
+                className="alerta-detalle"
+              >
+                {mensajeAlerta}
+              </Alert>
+            )}
+            <Form onSubmit={manejarEnvio}>
+              <Form.Group controlId="formNombre">
+                <Form.Label>Nombre</Form.Label>
+                <Form.Control
+                  type="text"
+                  placeholder="Ingresa tu nombre"
+                  name="nombre"
+                  value={formulario.nombre}
+                  onChange={manejarCambio}
+                  required
+                />
+              </Form.Group>
 
-            <Form.Group controlId="formEmail">
-              <Form.Label>Correo Electrónico</Form.Label>
-              <Form.Control
-                type="email"
-                placeholder="Ingresa tu correo electrónico"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+              <Form.Group controlId="formCorreo">
+                <Form.Label>Correo Electrónico</Form.Label>
+                <Form.Control
+                  type="email"
+                  placeholder="Ingresa tu correo electrónico"
+                  name="correo"
+                  value={formulario.correo}
+                  onChange={manejarCambio}
+                  required
+                />
+              </Form.Group>
 
-            <Form.Group controlId="formPhone">
-              <Form.Label>Teléfono</Form.Label>
-              <Form.Control
-                type="tel"
-                placeholder="Ingresa tu número de teléfono"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+              <Form.Group controlId="formTelefono">
+                <Form.Label>Teléfono</Form.Label>
+                <Form.Control
+                  type="tel"
+                  placeholder="Ingresa tu número de teléfono"
+                  name="telefono"
+                  value={formulario.telefono}
+                  onChange={manejarCambio}
+                  required
+                />
+              </Form.Group>
 
-            <Form.Group controlId="formMessage">
-              <Form.Label>Mensaje</Form.Label>
-              <Form.Control
-                as="textarea"
-                rows={3}
-                placeholder="Escribe tu consulta aquí"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              />
-            </Form.Group>
+              <Form.Group controlId="formPlan">
+                <Form.Label>Selecciona un plan</Form.Label>
+                <Form.Control
+                  as="select"
+                  name="plan"
+                  value={formulario.plan}
+                  onChange={manejarCambio}
+                  required
+                >
+                  <option value="" disabled hidden className="placeholder-option">
+                    Selecciona un plan
+                  </option>
+                  <option value="Plan Primeros pasos">Plan Primeros pasos</option>
+                  <option value="Plan Madurando">Plan Madurando</option>
+                  <option value="Plan Adultos">Plan Adultos</option>
+                </Form.Control>
+              </Form.Group>
 
-            <Button variant="primary" type="submit" disabled={isSending}>
-              {isSending ? 'Enviando...' : 'Enviar Consulta'}
-            </Button>
-          </Form>
-        </Col>
-      </Row>
-    </Container>
+              <Form.Group controlId="formMensaje">
+                <Form.Label>Mensaje</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  rows={3}
+                  placeholder="Escribe tu consulta aquí"
+                  name="mensaje"
+                  value={formulario.mensaje}
+                  onChange={manejarCambio}
+                  required
+                />
+              </Form.Group>
+
+              <Button
+                variant="primary"
+                type="submit"
+                disabled={enviando}
+                className="boton-enviar"
+              >
+                {enviando ? 'Enviando...' : 'Enviar Consulta'}
+              </Button>
+            </Form>
+          </Col>
+        </Row>
+      </Container>
+
+      {/* Sección de tarjetas de colores */}
+      <div className="cards-container">
+      <div className="cardP">
+        <div className="card-color-line red"></div>
+        <div className="card-content">
+          <h2 className="card-title">Card One</h2>
+          <p className="card-description">Description for card one</p>
+        </div>
+      </div>
+
+      <div className="cardP">
+        <div className="card-color-line blue"></div>
+        <div className="card-content">
+          <h2 className="card-title">Card Two</h2>
+          <p className="card-description">Description for card two</p>
+        </div>
+      </div>
+
+      <div className="cardP">
+        <div className="card-color-line green"></div>
+        <div className="card-content">
+          <h2 className="card-title">Card Three</h2>
+          <p className="card-description">Description for card three</p>
+        </div>
+      </div>
+    </div>
+    </>
   );
 };
 

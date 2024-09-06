@@ -104,28 +104,26 @@
 }
 
 
-  /* Estilos para el botón de Iniciar Sesión */
-    .BotonInicio {
-    background-color: rgba(23, 71, 157, 1);
-    color: white;
-    border: none;
-  }
-  
-  .BotonInicio:hover {
-    background-color: rgba(23, 70, 157, 0.707); /* Color más oscuro para el hover */
-    color: white;
-  }
-  
-  /* Estilos para el botón de Registrarse */
-  .BotonRegistro {
-    border-color: rgba(23, 71, 157, 1);
-    color: rgba(23, 71, 157, 1);
-  }
-  
-  .BotonRegistro:hover {
-    background-color: rgba(23, 71, 157, 1);
-    color: white;
-  }
+.BotonInicio {
+  background-color: #10b981;
+  color: white;
+  border: none;
+}
+
+.BotonInicio:hover {
+  background-color: #0d7e58; 
+  color: white;
+}
+
+.BotonRegistro {
+  border-color: rgba(23, 71, 157, 1);
+  color: rgba(23, 71, 157, 1);
+}
+
+.BotonRegistro:hover {
+  background-color: rgba(23, 71, 157, 1);
+  color: white;
+}
 
 
   
