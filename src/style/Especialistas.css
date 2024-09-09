@@ -1,0 +1,25 @@
+
+@media (min-width: 400px) {
+    .container-especialistas {
+        width: 80% !important;
+    }   
+  }  
+
+@media (min-width: 700px) {
+    .container-especialistas {
+        width: 60% !important;
+    }   
+  }  
+
+
+@media (min-width: 900px) {
+    .container-especialistas {
+        width: 50% !important;
+    }   
+  }
+
+.img-especialistas {
+    border-radius: 50%;
+}
+
+

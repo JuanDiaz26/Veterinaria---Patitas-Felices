@@ -5,6 +5,7 @@ import Planes from '../components/Planes';
 import '../pages/Inicio.css';
 import LogoBanner from '../components/LogoBanner';
 import CuponBanner from '../components/CuponBanner';
+import Especialistas from '../components/Especialistas';
 
 const Inicio = () => {
   return (
@@ -12,6 +13,7 @@ const Inicio = () => {
       <PortadaInicio />
       <main className='ContenedorPrincipal'>
       <Planes />
+      <Especialistas />
       <LogoBanner />
       <CuponBanner /> 
       <VoiceflowChat />
