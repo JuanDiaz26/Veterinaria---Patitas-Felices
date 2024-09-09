@@ -60,15 +60,41 @@ const DetallePlanes = () => {
 
   return (
     <>
-      <Container className="mt-4 detalle-planes">
+      <Container className="mt-3 detalle-planes">
         <Row>
-          <Col md={6} className="offset-md-3">
+          <Col md={7} className="offset-md-3 w-100 m-auto">
             <h2 className="text-center mb-4">Detalle de Planes</h2>
             <p className="text-center">
-              Aquí encontrarás información detallada sobre nuestros planes para el
-              cuidado de tus mascotas. Completa el formulario a continuación para
-              más información.
+              Completa el formulario a continuación para brindarte más información acerca del plan que elijas.
             </p>
+          
+            <div className="cards-container">
+  <div className="cardP">
+    <div className="card-color-line red"></div>
+    <div className="card-content">
+      <h2 className="card-title">Plan Primeros Pasos</h2>
+      <p className="card-description">Cuidado inicial para cachorros.</p>
+    </div>
+  </div>
+
+  <div className="cardP">
+    <div className="card-color-line blue"></div>
+    <div className="card-content">
+      <h2 className="card-title">Plan Madurando</h2>
+      <p className="card-description">Cuidado preventivo para jovenes.</p>
+    </div>
+  </div>
+
+  <div className="cardP">
+    <div className="card-color-line green"></div>
+    <div className="card-content">
+      <h2 className="card-title">Plan Adultos</h2>
+      <p className="card-description">Atención integral para adultos.</p>
+    </div>
+  </div>
+</div>
+
+
             {mostrarAlerta && (
               <Alert
                 variant={mensajeAlerta.includes('error') ? 'danger' : 'success'}
@@ -158,32 +184,7 @@ const DetallePlanes = () => {
         </Row>
       </Container>
 
-      {/* Sección de tarjetas de colores */}
-      <div className="cards-container">
-      <div className="cardP">
-        <div className="card-color-line red"></div>
-        <div className="card-content">
-          <h2 className="card-title">Card One</h2>
-          <p className="card-description">Description for card one</p>
-        </div>
-      </div>
-
-      <div className="cardP">
-        <div className="card-color-line blue"></div>
-        <div className="card-content">
-          <h2 className="card-title">Card Two</h2>
-          <p className="card-description">Description for card two</p>
-        </div>
-      </div>
-
-      <div className="cardP">
-        <div className="card-color-line green"></div>
-        <div className="card-content">
-          <h2 className="card-title">Card Three</h2>
-          <p className="card-description">Description for card three</p>
-        </div>
-      </div>
-    </div>
+      
     </>
   );
 };

@@ -39,6 +39,14 @@
     gap: 1rem; /* equivalente a space-y-4 */
     padding: 20px;
   }
+
+  @media (max-width: 550px) {
+    .cards-container {
+      flex-direction: column;
+    }
+  
+  }
+
   
   .cardP {
     display: flex;

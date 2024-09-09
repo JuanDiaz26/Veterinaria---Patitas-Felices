@@ -7,38 +7,39 @@ import { Link } from 'react-router-dom';
 const planes = [
   {
     id: 1,
-    nombre: 'Plan Básico',
-    descripcion: 'Ideal para el cuidado general de tu mascota.',
+    nombre: 'Plan Primeros Pasos',
+    descripcion: 'Diseñado para cachorros y mascotas jóvenes que están dando sus primeros pasos.',
     caracteristicas: [
-      'Consulta veterinaria básica',
-      'Vacunas anuales',
-      'Control de peso'
+      'Consulta veterinaria inicial',
+      'Vacunación básica para cachorros',
+      'Consejos de alimentación y cuidado'
     ],
     claseBoton: 'boton1', 
   },
   {
     id: 2,
-    nombre: 'Plan Avanzado',
-    descripcion: 'Para un cuidado más completo y especializado.',
+    nombre: 'Plan Madurando',
+    descripcion: 'Perfecto para mascotas adultas que necesitan un cuidado continuo y preventivo.',
     caracteristicas: [
-      'Consulta veterinaria avanzada',
-      'Vacunas y desparasitaciones',
-      'Chequeo dental'
+      'Consultas de control y seguimiento',
+      'Vacunas y desparasitaciones periódicas',
+      'Chequeo nutricional y control de peso'
     ],
     claseBoton: 'boton2',
   },
   {
     id: 3,
-    nombre: 'Plan Premium',
-    descripcion: 'Todo lo que tu mascota necesita para estar saludable.',
+    nombre: 'Plan Adultos',
+    descripcion: 'Cuidado especializado para mascotas en su etapa adulta, asegurando bienestar y salud.',
     caracteristicas: [
       'Consultas ilimitadas',
-      'Vacunas, desparasitaciones y chequeos completos',
-      'Atención de emergencia 24/7'
+      'Vacunación completa y desparasitaciones',
+      'Atención geriátrica y chequeo preventivo'
     ],
     claseBoton: 'boton3', 
   }
 ];
+
 
 const Planes = () => {
 
