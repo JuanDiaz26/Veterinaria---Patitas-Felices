@@ -63,32 +63,9 @@
 
 .nav-link {
     color: black !important;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 500;
-}
-
-@media screen and (min-width: 992px) {
-    .nav-item {
-        border: none !important;
-    }
-    
-    .nav-link:hover {
-        color: rgb(255, 151, 6) !important;
-        transition: all 0.5s ease !important;
-        cursor: pointer;
-    }
-
-    .ContenedorSesion {
-        position: absolute;
-        right: 10px;
-    }
-
-    .divnav {
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-    }
-
+    letter-spacing: 1px; 
 }
 
 .navbar-nav {
@@ -98,7 +75,7 @@
 
 .divnav {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 30px;
     margin-right: 50px;
 }
@@ -123,6 +100,31 @@
 .BotonRegistro:hover {
   background-color: rgba(23, 71, 157, 1);
   color: white;
+}
+
+@media (min-width: 992px) {
+
+    .nav-item {
+        border-bottom: 1px solid #32485142 !important;
+    }  
+    
+    .nav-link:hover {
+        color: #1d8dbab2 !important;
+        transition: all 0.25s ease !important;
+        cursor: pointer;
+    }
+
+    .ContenedorSesion {
+        position: absolute;
+        right: 10px;
+    }
+
+    .divnav {
+        display: flex;
+        flex-direction: row;
+        gap: 30px;
+    }
+
 }
 
 

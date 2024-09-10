@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
-import { Modal, Button, Form, Alert} from 'react-bootstrap';
+import { Modal, Button, Form, Alert } from 'react-bootstrap';
 import './CuponBanner.css';
 
 const CuponBanner = () => {

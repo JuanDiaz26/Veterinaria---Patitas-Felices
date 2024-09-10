@@ -1,6 +1,6 @@
 # Veterinaria Patitas Felices
 
-**Veterinaria Patitas Felices** es una página web desarrollada para ofrecer servicios veterinarios, planes de atención, especialistas y productos para mascotas. Esta aplicación está construida utilizando React y varias bibliotecas adicionales para proporcionar una experiencia de usuario dinámica y moderna.
+**Veterinaria Patitas Felices** es una página web desarrollada para ofrecer servicios veterinarios, planes de atención, especialistas y productos para mascotas. Esta aplicación está construida utilizando React y varias bibliotecas adicionales para proporcionar una experiencia de usuario dinámica y moderna. 
 
 ## **Tecnologías Utilizadas**
 

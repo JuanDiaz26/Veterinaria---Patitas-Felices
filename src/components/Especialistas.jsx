@@ -34,7 +34,7 @@ const Especialistas = () => {
   ];
 
   return (
-    <div className="planes-veterinarios">
+    <div className="planes-veterinarios" id="especialistas">
       <div className="titulo-principal"><img width="35" height="35" className="iconoVeteTit" src="https://img.icons8.com/color/48/veterinarian.png" alt="veterinarian"/> Nuestros Especialistas</div>
     <Container className="my-4 container-especialistas">
       <Row className="container-row-esp">

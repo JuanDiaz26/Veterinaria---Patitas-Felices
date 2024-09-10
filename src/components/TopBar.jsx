@@ -1,13 +1,17 @@
 import React from 'react';
-import { Telephone, Envelope, Facebook, Whatsapp, Instagram } from 'react-bootstrap-icons';
+import { TelephoneFill, EnvelopeFill, Facebook, Whatsapp, Instagram } from 'react-bootstrap-icons';
 import './TopBar.css';
 
 const TopBar = () => {
   return (
     <div className="top-bar">
-      <div className="contact-info">
-        <span><Telephone /> +54 381-4955080</span>
-        <span><Envelope /> info@patitasfelices.com</span>
+     <div className="contact-info">
+        <a href="tel:+543814955080" className="contact-link">
+          <TelephoneFill /> +54 381-4955080
+        </a>
+        <a href="mailto:info@patitasfelices.com" className="contact-link">
+          <EnvelopeFill /> info@patitasfelices.com
+        </a>
       </div>
       <div className="social-links">
   < a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon facebook-icon"><Facebook /></a>
