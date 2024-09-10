@@ -22,10 +22,8 @@
 
 La portada del sitio web es una sección visualmente atractiva que recibe a los visitantes. Esta sección incluye:
 
-- **Imagen Principal**: Una imagen destacada que refleja la identidad de la veterinaria y da la bienvenida a los usuarios.
-- **Botón de Redirección**: Un botón prominente que permite a los usuarios navegar rápidamente a la sección de especialistas, facilitando el acceso a la información sobre el equipo veterinario.
-
-La portada está diseñada para captar la atención del visitante desde el primer momento y guiarlo hacia las áreas más importantes del sitio.
+- **Imagen Principal**: Una imagen destacada que refleja la identidad de la veterinaria y da la bienvenida a los usuarios, imagen hecha en canva.
+- **Botón de Redirección**: Un botón que permite a los usuarios navegar rápidamente a la sección de especialistas, facilitando el acceso a la información sobre el equipo veterinario.
 
 ### **4. ChatBot (`Chatbot.jsx`)**
 
@@ -35,19 +33,16 @@ El componente `Chatbot.jsx` integra un asistente virtual basado en **Voiceflow**
 - **Enlaces Informativos**: Incluye algunos enlaces a secciones relevantes del sitio, ofreciendo una manera rápida de acceder a más información.
 - **Propósito**: No pretende ser un sistema profesional de soporte, sino una adición moderna al proyecto final para mejorar la experiencia de usuario.
 
-Este chatbot es un ejemplo de cómo se pueden integrar elementos interactivos en un sitio web para agregar valor y modernidad, manteniendo la experiencia del usuario dinámica y accesible.
-
-
 ### **5. Componente de Planes (`Planes.jsx`)**
 - Sección donde se muestran los diferentes planes disponibles para las mascotas, categorizados por necesidades y edades.
-- Los planes incluyen un enlace a una página de detalle específica para cada uno.
+- Los planes incluyen un enlace a una página de detalle para rellenar un formulario de contacto de planes.
 
 ### **6. Componente de Especialistas (`Especialistas.jsx`)**
-- Muestra una lista de los especialistas veterinarios que forman parte del equipo, con información de sus áreas de experiencia.
+- Muestra una lista de los especialistas veterinarios que forman parte del equipo, con información de sus áreas de experiencia. (2 veterinarios)
 - Cada especialista se presenta con su foto y breve descripción.
 
 ### **7. Banner de Marcas (`LogoBanner.jsx`)**
-- Un banner que muestra las marcas de productos disponibles en la veterinaria.
+- Un banner que muestra las marcas de productos disponibles en la veterinaria. (Un banner que habia visto en otras paginas y me parecio bueno e innovador volcarlo en esta parte de logos de marcas, banner realizado con Chatgpt)
 
 ### **8. Cupón Banner (`CuponBanner.jsx`)**
 - Sección donde los usuarios pueden obtener cupones de descuento para servicios o productos.
