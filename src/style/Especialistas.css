@@ -1,25 +1,57 @@
 
 @media (min-width: 400px) {
     .container-especialistas {
-        width: 80% !important;
+        width: 90% !important;
     }   
   }  
 
-@media (min-width: 700px) {
+@media (min-width: 600px) {
     .container-especialistas {
         width: 60% !important;
+        margin: 0 auto !important;
+        padding: 0;
     }   
-  }  
 
+    .container-row-esp {
+      gap: 5rem;
+      justify-content: center;
+    }    
+  }
+
+  @media (min-width: 768px) {
+    .container-especialistas {
+      width: 100% !important;
+      margin: 0 auto !important;
+      padding: 0;
+  }   
+
+    .container-row-esp {
+      gap: 5rem;
+      justify-content: center;
+  }    
+}
 
 @media (min-width: 900px) {
-    .container-especialistas {
-        width: 50% !important;
-    }   
-  }
+  .container-especialistas {
+    width: 80% !important;
+    margin: 0 auto !important;
+    padding: 0;
+}   
+
+  .container-row-esp {
+    gap: 5rem;
+    justify-content: center;
+}    
+}
 
 .img-especialistas {
     border-radius: 50%;
+    width: 90% !important;
+    height: 250px !important;
+    margin: auto;
 }
 
+.card-footer {
+  border: none !important;
+}
 

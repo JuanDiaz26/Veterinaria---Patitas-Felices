@@ -11,7 +11,7 @@ const Especialistas = () => {
       profesion: 'Veterinario Especialista en Cirugía',
       descripcion:
         'Con más de 10 años de experiencia en cirugía veterinaria, el Dr. Banderas es conocido por su dedicación y atención al detalle en cada procedimiento.',
-      foto: 'https://via.placeholder.com/150',
+      foto: '../src/assets/drvete1.jpg',
       redes: {
         email: 'antonio.banderas@gmail.com',
         facebook: 'https://www.facebook.com/drantoniobanderas',
@@ -24,7 +24,7 @@ const Especialistas = () => {
       profesion: 'Especialista en Dermatología Veterinaria',
       descripcion:
         'La Dra. Herrera se especializa en el cuidado de la piel y el pelaje de mascotas, ofreciendo tratamientos avanzados para diversas afecciones dermatológicas.',
-      foto: 'https://via.placeholder.com/150', 
+      foto: '../src/assets/drvete2.jpg', 
       redes: {
         email: 'maria.gomez@gmail.com',
         facebook: 'https://www.facebook.com/dracarolinaherrera',
@@ -34,19 +34,20 @@ const Especialistas = () => {
   ];
 
   return (
+    <div className="planes-veterinarios">
+      <div className="titulo-principal"><img width="35" height="35" className="iconoVeteTit" src="https://img.icons8.com/color/48/veterinarian.png" alt="veterinarian"/> Nuestros Especialistas</div>
     <Container className="my-4 container-especialistas">
-      <h2 className="text-center mb-4">Nuestros Especialistas</h2>
-      <Row>
+      <Row className="container-row-esp">
         {especialistas.map((especialista) => (
-          <Col key={especialista.id} md={6} className="mb-4">
-            <Card>
+          <Col key={especialista.id} md={5} className="mb-4">
+            <Card>  
               <Card.Img className="img-especialistas" variant="top" src={especialista.foto} alt={`Foto de ${especialista.nombre}`} />
               <Card.Body>
                 <Card.Title>{especialista.nombre}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{especialista.profesion}</Card.Subtitle>
                 <Card.Text>{especialista.descripcion}</Card.Text>
               </Card.Body>
-              <Card.Footer className="d-flex justify-content-around">
+              <Card.Footer className="d-flex justify-content-around card-footer">
                 <Button
                   variant="link"
                   href={`mailto:${especialista.redes.email}`}
@@ -75,6 +76,7 @@ const Especialistas = () => {
         ))}
       </Row>
     </Container>
+    </div>
   );
 };
 
