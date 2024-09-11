@@ -5,6 +5,7 @@ import TopBar from './components/TopBar';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import DetallePlanes from './pages/DetallePlanes'; 
+import SobreMi from './pages/SobreMi'; 
 
 const App = () => {
   return (
@@ -13,7 +14,8 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route path="/" element={<Inicio />} />
-        <Route path="/detalle-planes" element={<DetallePlanes />} /> {/* Define la ruta para DetallePlanes */}
+        <Route path="/detalle-planes" element={<DetallePlanes />} /> 
+        <Route path="/sobre-mi" element={<SobreMi />} /> 
       </Routes>
       <Footer />
     </BrowserRouter>

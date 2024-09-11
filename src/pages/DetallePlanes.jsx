@@ -60,41 +60,38 @@ const DetallePlanes = () => {
 
   return (
     <>
-      <Container className="mt-3 detalle-planes">
+      <Container className="detalle-planes">
         <Row>
           <Col md={7} className="offset-md-3 w-100 m-auto">
-            <h2 className="text-center mb-4">Detalle de Planes</h2>
+            <h2 className="text-center mb-2">Detalle de Planes</h2>
             <p className="text-center">
               Completa el formulario a continuación para brindarte más información acerca del plan que elijas.
-            </p>
-          
-            <div className="cards-container">
-  <div className="cardP">
-    <div className="card-color-line red"></div>
-    <div className="card-content">
-      <h2 className="card-title">Plan Primeros Pasos</h2>
-      <p className="card-description">Cuidado inicial para cachorros.</p>
-    </div>
-  </div>
+            </p>     
+          <div className="cards-container">
+              <div className="cardP">
+                <div className="card-color-line red"></div>
+                <div className="card-content">
+                  <h2 className="card-title">Plan Primeros Pasos</h2>
+                  <p className="card-description">Cuidado inicial para cachorros.</p>
+                </div>
+            </div>
 
-  <div className="cardP">
-    <div className="card-color-line blue"></div>
-    <div className="card-content">
-      <h2 className="card-title">Plan Madurando</h2>
-      <p className="card-description">Cuidado preventivo para jovenes.</p>
-    </div>
-  </div>
+            <div className="cardP">
+              <div className="card-color-line blue"></div>
+              <div className="card-content">
+                <h2 className="card-title">Plan Madurando</h2>
+                <p className="card-description">Cuidado preventivo para jovenes.</p>
+              </div>
+            </div>
 
-  <div className="cardP">
-    <div className="card-color-line green"></div>
-    <div className="card-content">
-      <h2 className="card-title">Plan Adultos</h2>
-      <p className="card-description">Atención integral para adultos.</p>
-    </div>
-  </div>
-</div>
-
-
+            <div className="cardP">
+              <div className="card-color-line green"></div>
+              <div className="card-content">
+                <h2 className="card-title">Plan Adultos</h2>
+                <p className="card-description">Atención integral para adultos.</p>
+              </div>
+            </div>
+          </div>
             {mostrarAlerta && (
               <Alert
                 variant={mensajeAlerta.includes('error') ? 'danger' : 'success'}
@@ -141,22 +138,23 @@ const DetallePlanes = () => {
               </Form.Group>
 
               <Form.Group controlId="formPlan">
-                <Form.Label>Selecciona un plan</Form.Label>
-                <Form.Control
-                  as="select"
-                  name="plan"
-                  value={formulario.plan}
-                  onChange={manejarCambio}
-                  required
-                >
-                  <option value="" disabled hidden className="placeholder-option">
-                    Selecciona un plan
-                  </option>
-                  <option value="Plan Primeros pasos">Plan Primeros pasos</option>
-                  <option value="Plan Madurando">Plan Madurando</option>
-                  <option value="Plan Adultos">Plan Adultos</option>
-                </Form.Control>
-              </Form.Group>
+  <Form.Label>Selecciona un plan</Form.Label>
+  <Form.Control
+    as="select"
+    name="plan"
+    value={formulario.plan}
+    onChange={manejarCambio}
+    required
+  >
+    <option value="" disabled hidden>
+      ...
+    </option>
+    <option value="Plan Primeros pasos">Plan Primeros pasos</option>
+    <option value="Plan Madurando">Plan Madurando</option>
+    <option value="Plan Adultos">Plan Adultos</option>
+  </Form.Control>
+</Form.Group>
+
 
               <Form.Group controlId="formMensaje">
                 <Form.Label>Mensaje</Form.Label>
@@ -182,9 +180,7 @@ const DetallePlanes = () => {
             </Form>
           </Col>
         </Row>
-      </Container>
-
-      
+      </Container>    
     </>
   );
 };

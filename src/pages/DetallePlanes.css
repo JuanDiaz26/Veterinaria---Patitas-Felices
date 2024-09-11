@@ -2,6 +2,7 @@
     padding: 20px;
     background-color: #f9f9f9;
     border-radius: 8px;
+    margin: 50px auto;
   }
   
   .alerta-detalle {
@@ -85,4 +86,6 @@
     margin: 0.25rem 0 0;
   }
   
-  
+  .select-placeholder {
+    color: rgb(108, 106, 106) !important; /* Cambia el color al que desees */
+  }
