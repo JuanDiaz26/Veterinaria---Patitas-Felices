@@ -1,15 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Form, Button, Alert } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
-import './DetallePlanes.css'; // Asegúrate de enlazar el archivo CSS correctamente.
+import './DetallePlanes.css'; 
 
 const DetallePlanes = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const [formulario, setFormulario] = useState({
     nombre: '',
     correo: '',
     telefono: '',
     mensaje: '',
-    plan: '', // Campo para el select de planes
+    plan: '', 
   });
 
   const [mostrarAlerta, setMostrarAlerta] = useState(false);

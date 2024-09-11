@@ -18,7 +18,8 @@
 @media (max-width: 768px) {
   .contenedorImagen {
     flex-direction: column;
-    height: auto; 
+    height: auto;
+    background-position: 78%;
   }
 
   .tituloImagen {

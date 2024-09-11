@@ -45,12 +45,14 @@
 
 
 .navbar-toggler {
-    border: 1px solid rgb(129, 126, 126);
+    border: 1px solid rgba(23, 71, 157, 1);
 }
 
-.navbar-toggler-icon {
-    filter: invert();
-}
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cpath stroke='rgba(23, 71, 157, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
 
 .offcanvas-header {
     background-color: #0ba1dde7;
@@ -85,6 +87,7 @@
   background-color: #10b981;
   color: white;
   border: none;
+  font-weight: bold;
 }
 
 .BotonInicio:hover {
@@ -95,6 +98,7 @@
 .BotonRegistro {
   border-color: rgba(23, 71, 157, 1);
   color: rgba(23, 71, 157, 1);
+  font-weight: bold;
 }
 
 .BotonRegistro:hover {
