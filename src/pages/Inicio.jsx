@@ -6,7 +6,7 @@ import '../pages/Inicio.css';
 import LogoBanner from '../components/LogoBanner';
 import CuponBanner from '../components/CuponBanner';
 import Especialistas from '../components/Especialistas';
-import Productos from '../components/Productos';
+import Comentarios from '../components/Comentarios';
 
 const Inicio = () => {
   return (
@@ -17,7 +17,7 @@ const Inicio = () => {
       <Especialistas />
       <LogoBanner />
       <CuponBanner /> 
-      <Productos />
+      <Comentarios />
       <VoiceflowChat />
       </main>
     </>

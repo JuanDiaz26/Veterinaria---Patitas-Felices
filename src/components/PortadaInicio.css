@@ -47,11 +47,26 @@
   margin-right: 10px;
 }
 
+.tituloImagen h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 30px;
+  margin-bottom: 15px;
+  color: rgba(23, 71, 157, 1);
+}
+
 @media (min-width: 950px) {
   .tituloImagen {
     max-width: 70%;
     margin-right: 10px;
   }
+
+  .tituloImagen h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 50px;
+    margin-bottom: 15px;
+    color: rgba(23, 71, 157, 1);
+  }
+
 }
 
 @media (min-width: 1200px) {
@@ -61,16 +76,9 @@
   }
 }
 
-.tituloImagen h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 50px;
-  margin-bottom: 15px;
-  color: rgba(23, 71, 157, 1);
-}
-
 .tituloImagen p {
   font-family: 'Roboto', sans-serif;
-  font-size: 1.2rem;
+  font-size: 18px;
   margin-bottom: 20px;
   color: #333;
 }

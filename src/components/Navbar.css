@@ -33,16 +33,20 @@
 }
 
 .logo-clinica {
-    height: 70px;
-    width: 75px;
+    height: 60px;
+    width: 60px;
 }
 
 @media screen and (min-width: 768px) {
     .titulo-veterinaria {
         font-size: 22px;
     }
-}  
 
+    .logo-clinica {
+        height: 70px;
+        width: 70px;
+    }
+}  
 
 .navbar-toggler {
     border: 1px solid rgba(23, 71, 157, 1);
