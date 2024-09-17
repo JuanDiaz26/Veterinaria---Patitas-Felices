@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Card } from 'react-bootstrap';
-import './SobreMi.css'; // Asegúrate de que el CSS esté vinculado correctamente
+import './SobreMi.css';
 
 const SobreMi = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <section className="sobreMiContainer">
       <div className="sobreMiContent">

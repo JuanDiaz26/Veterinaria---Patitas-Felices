@@ -2,28 +2,29 @@ import React from 'react';
 import { Facebook, Whatsapp, Instagram, TelephoneFill, EnvelopeAtFill, GeoAltFill, HeartFill, Scissors, PeopleFill, CartFill, PersonCircle } from 'react-bootstrap-icons';
 import './Footer.css';
 import Logo from '../assets/logo-veterinaria.webp';
-import { useNavigate } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const Footer = () => {
-  const navigate = useNavigate(); // Obtén la función navigate
-
-  const IndexLogoClick = () => {
-    navigate('/'); // Redirige a la página principal (ruta "/")
-  };
-
   return (
     <footer className="footer">
       <div className="footer-content">
-        <div className="footer-content-logo" onClick={IndexLogoClick}>
+      <NavLink to="/" className="footer-logo-link">
+        <div className="footer-content-logo">
           <img className="footer-logo" src={Logo} alt="Logo Veterinaria Patitas Felices" />
           <h4>Veterinaria <br /> Patitas Felices</h4>
-        </div>  
+        </div>
+      </NavLink> 
         <div className="footer-links">
           <div className="footer-section">
             <h4>Nosotros</h4>
             <ul>
-              <li><PersonCircle className="icono-footer not-right"/> <a href="#">Sobre nosotros</a></li>
+            <li>
+          <PersonCircle className="icono-footer not-right" />
+          <NavLink to="/sobre-mi">
+            Sobre Mi
+          </NavLink>
+        </li>
             </ul>
           </div>
           <div className="footer-section">

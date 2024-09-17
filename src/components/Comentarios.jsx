@@ -29,7 +29,7 @@ const Comentarios = () => {
     {
       nombre: 'Tony Stark',
       rating: 5,
-      comentario: 'Esta veterinaria es el Ferrari de los centros de cuidado para mascotas. ¡Altamente recomendada!',
+      comentario: 'Esta veterinaria es el Ferrari de los centros de cuidado para mascotas. Altamente recomendada',
       img: '../src/assets/tony.webp'
     },
     {
@@ -42,6 +42,7 @@ const Comentarios = () => {
 
   return (
     <div className="comentarios-container">
+        <div className="titulo-principal titulo-com"><img width="35" height="35" className="iconoVeteTit" src="https://img.icons8.com/color/48/veterinarian.png" alt="veterinarian"/> Comentarios</div>
       {comentarios.map((comentario, index) => (
         <div key={index} className="comentario-card">
           <div className="comentario-color-line"></div>

@@ -21,7 +21,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
@@ -35,24 +35,27 @@
 
 .sobreMiTitulo {
   color: #3b82f6;
-  font-size: 35px;
+  font-size: 40px;
   font-weight: bold;
   letter-spacing: 1px;
 }
 
 .sobreMiTituloSpan {
   color: #10b981;
+  font-weight: bold;
+  font-size: 40px;
 }
 
 .sobreMiSaludo {
   color: white;
   font-size: 22px;
   margin: 10px 0;
+  padding: 10px;
 }
 
 .sobreMiDescripcion {
   margin: 10px 0;
-  background: rgba(59, 130, 246, 0.6);
+  background: rgba(59, 130, 246, 0.9);
   border-radius: 60px;
   padding: 15px 30px;
   color: white;
@@ -94,9 +97,9 @@
 }
 
 .sobreMiCardBody {
-  margin: 5px 10px;
-  border: 2px solid #3b83f6a4; 
-  background-color: #d2e2fc 
+  border-top: 2px solid #3b83f6a4; 
+  background-color: #d2e2fc;
+  padding: 25px;
 }
 
 .sobreMiCardTitulo {
