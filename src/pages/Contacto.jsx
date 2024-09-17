@@ -58,15 +58,7 @@ const Contacto = () => {
             <Card.Body>
               <Card.Title>Encuéntranos en el Mapa</Card.Title>
               <div className="contenedor-mapa">
-                <iframe
-                  src="https://www.google.com/maps/embed/v1/place?q=RollingCode%20General%20Paz%20al%20500,%20Tucum%C3%A1n&key=YOUR_GOOGLE_MAPS_API_KEY"
-                  width="100%"
-                  height="400"
-                  style={{ border: 0 }}
-                  allowFullScreen=""
-                  loading="lazy"
-                  title="Ubicación en el Mapa"
-                ></iframe>
+              <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1aNZuQjx1gJNn6qTOYhpYDu06mFsWfcM&ehbc=2E312F" width="640" height="480"></iframe>
               </div>
             </Card.Body>
           </Card>

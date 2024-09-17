@@ -53,9 +53,6 @@ const Navbar = () => {
           <li className="nav-item">
             <NavLink className="nav-link" to="/contacto">Contacto</NavLink>
           </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" to="/productos">Productos</NavLink>
-          </li>
           </div> 
           <div className="d-flex ContenedorSesion">
             <NavLink className="btn BotonRegistro me-2" to="/registrarse">
