@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
@@ -20,10 +20,10 @@ const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
   <div className="container-fluid d-flex justify-content-between">
-    <NavLink className="navbar-brand" to="/">
+    <Link className="navbar-brand" to="/">
       <img className="logo-clinica" src={Logo} alt="Logo Veterinaria Patitas Felices" />
       <h1 className="titulo-veterinaria">Patitas Felices</h1>
-    </NavLink>
+    </Link>
     <button
   className="navbar-toggler custom-toggler"
   type="button"
@@ -55,22 +55,22 @@ const Navbar = () => {
         <ul className="navbar-nav justify-content-center flex-grow-1 pe-3 ">
           <div className="divnav">
           <li className="nav-item">
-            <NavLink className="nav-link" to="/" onClick={closeOffcanvas}>Inicio</NavLink>
+            <Link className="nav-link" to="/" onClick={closeOffcanvas}>Inicio</Link>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/sobre-mi" onClick={closeOffcanvas}>Sobre Mi</NavLink>
+            <Link className="nav-link" to="/sobre-mi" onClick={closeOffcanvas}>Sobre Mi</Link>
           </li> 
           <li className="nav-item">
-            <NavLink className="nav-link" to="/contacto" onClick={closeOffcanvas}>Contacto</NavLink>
+            <Link className="nav-link" to="/contacto" onClick={closeOffcanvas}>Contacto</Link>
           </li>
           </div> 
           <div className="d-flex ContenedorSesion">
-            <NavLink className="btn BotonRegistro me-2" to="/registrarse">
+            <Link className="btn BotonRegistro me-2" to="/registrarse">
               Registrarse
-            </NavLink>
-            <NavLink className="btn BotonInicio" to="/iniciar-sesion">
+            </Link>
+            <Link className="btn BotonInicio" to="/iniciar-sesion">
               Iniciar Sesión
-            </NavLink>
+            </Link>
           </div>
         </ul>
       </div>
