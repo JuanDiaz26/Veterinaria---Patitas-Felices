@@ -20,13 +20,13 @@ const Footer = () => {
             <h4>Nosotros</h4>
             <ul>
             <li>
-          <PersonCircle className="icono-footer not-right not-right-sobre" />
+          <PersonCircle className="icono-footer not-right" />
           <Link to="/sobre-mi">
             Sobre Mi
           </Link>
         </li>
         <li>
-          <TelephoneFill className="icono-footer not-right not-right-sobre" />
+          <TelephoneFill className="icono-footer not-right" />
           <Link to="/contacto">
             Contacto
           </Link>
@@ -38,7 +38,7 @@ const Footer = () => {
             <ul>
         <li>
           <HeartFill className="icono-footer not-right" />
-          <Link to="/veterinaria">Veterinaria</Link>
+          <Link to="/Error">Veterinaria</Link>
         </li>
         <li>
           <Scissors className="icono-footer not-right" />
