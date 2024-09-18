@@ -15,6 +15,11 @@
   text-align: center;
 }
 
+.footer-logo-link {
+ text-decoration: none !important;
+ color: white;
+}
+
 .footer-logo {
   height: 50px;
 }
@@ -64,6 +69,10 @@
 
 .not-right {
   margin-right: 1px;
+}
+
+.not-right-sobre {
+  margin-right: 5px;
 }
 
 .text-footer {

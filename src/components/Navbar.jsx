@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
@@ -7,6 +7,16 @@ import Logo from '../assets/logo-veterinaria.webp';
 import './Navbar.css';
 
 const Navbar = () => {
+
+  const offcanvasRef = useRef(null);
+
+  // Función para cerrar el offcanvas manualmente usando Bootstrap API
+  const closeOffcanvas = () => {
+    const bsOffcanvas = new window.bootstrap.Offcanvas(offcanvasRef.current);
+    bsOffcanvas.hide();
+  };
+
+
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
   <div className="container-fluid d-flex justify-content-between">
@@ -45,13 +55,13 @@ const Navbar = () => {
         <ul className="navbar-nav justify-content-center flex-grow-1 pe-3 ">
           <div className="divnav">
           <li className="nav-item">
-            <NavLink className="nav-link" to="/">Inicio</NavLink>
+            <NavLink className="nav-link" to="/" onClick={closeOffcanvas}>Inicio</NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" to="/sobre-mi">Sobre Mi</NavLink>
+            <NavLink className="nav-link" to="/sobre-mi" onClick={closeOffcanvas}>Sobre Mi</NavLink>
           </li> 
           <li className="nav-item">
-            <NavLink className="nav-link" to="/contacto">Contacto</NavLink>
+            <NavLink className="nav-link" to="/contacto" onClick={closeOffcanvas}>Contacto</NavLink>
           </li>
           </div> 
           <div className="d-flex ContenedorSesion">

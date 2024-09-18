@@ -1,0 +1,67 @@
+.contenedor-contacto {
+    padding: 15px;
+    background-color: #f5f5f5;
+    width: 95%;
+    margin: 20px auto;
+}
+
+.tarjeta-info {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.strong-contacto {
+    color: #3b82f6;
+    font-weight: 500;
+} 
+
+.row-mapa {
+    width: 100%;
+}
+
+.col-mapa {
+    padding: 0;
+}
+
+.tarjeta-mapa {
+    padding: 0;
+}
+
+.mb-4 {
+    gap: 20px;
+}
+
+.card-mapa {
+    padding: 10px;
+}
+
+.contenedor-mapa {
+    border: 3px solid #3b83f66c;
+    margin-top: 10px;
+}
+
+.titulo-contacto {
+    margin-bottom: 5px;
+}
+
+@media (min-width: 768px) {
+    .row-mapa {
+        width: 70%;
+    }
+
+    .mb-4 {
+        gap: 0px;
+    }
+
+    .card-mapa {
+        padding: 40px;
+    }
+    
+}
+
+@media (min-width: 992px) {
+    .row-mapa {
+        width: 60%;
+    }
+}

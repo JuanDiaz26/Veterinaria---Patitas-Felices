@@ -2,39 +2,57 @@ import React from 'react';
 import { Facebook, Whatsapp, Instagram, TelephoneFill, EnvelopeAtFill, GeoAltFill, HeartFill, Scissors, PeopleFill, CartFill, PersonCircle } from 'react-bootstrap-icons';
 import './Footer.css';
 import Logo from '../assets/logo-veterinaria.webp';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-      <NavLink to="/" className="footer-logo-link">
+      <Link to="/" className="footer-logo-link">
         <div className="footer-content-logo">
           <img className="footer-logo" src={Logo} alt="Logo Veterinaria Patitas Felices" />
           <h4>Veterinaria <br /> Patitas Felices</h4>
         </div>
-      </NavLink> 
+      </Link> 
         <div className="footer-links">
           <div className="footer-section">
             <h4>Nosotros</h4>
             <ul>
             <li>
-          <PersonCircle className="icono-footer not-right" />
-          <NavLink to="/sobre-mi">
+          <PersonCircle className="icono-footer not-right not-right-sobre" />
+          <Link to="/sobre-mi">
             Sobre Mi
-          </NavLink>
+          </Link>
+        </li>
+        <li>
+          <TelephoneFill className="icono-footer not-right not-right-sobre" />
+          <Link to="/contacto">
+            Contacto
+          </Link>
         </li>
             </ul>
           </div>
           <div className="footer-section">
             <h4>Servicios</h4>
             <ul>
-              <li><HeartFill className="icono-footer not-right"/> <a href="#">Veterinaria</a></li>
-              <li><Scissors className="icono-footer not-right"/> <a href="#">Peluquería</a></li>
-              <li><PeopleFill className="icono-footer not-right"/> <a href="#">Adopciones</a></li>
-              <li><CartFill className="icono-footer not-right"/> <a href="#">Nuestra tienda</a></li>
-            </ul>
+        <li>
+          <HeartFill className="icono-footer not-right" />
+          <Link to="/veterinaria">Veterinaria</Link>
+        </li>
+        <li>
+          <Scissors className="icono-footer not-right" />
+          <Link to="/peluqueria">Peluquería</Link>
+        </li>
+        <li>
+          <PeopleFill className="icono-footer not-right" />
+          <Link to="/adopciones">Adopciones</Link>
+        </li>
+        <li>
+          <CartFill className="icono-footer not-right" />
+          <Link to="/nuestra-tienda">Nuestra tienda</Link>
+        </li>
+      </ul>
           </div>
           <div className="footer-section">
             <h4>Contáctanos</h4>

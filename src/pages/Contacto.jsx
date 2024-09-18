@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
+import '../style/Contacto.css'; 
 
 const Contacto = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <Container className="contenedor-contacto mt-5">
       <Row className="mb-4">
         <Col md={6}>
           <Card className="tarjeta-formulario">
             <Card.Body>
-              <Card.Title>Contacta con Nosotros</Card.Title>
+            <div className="titulo-principal titulo-contacto"><img width="30" height="30" className="iconoVeteTit" src="https://img.icons8.com/color/48/veterinarian.png" alt="veterinarian"/> Contacta con nosotros</div>
               <Card.Text>
                 Si tienes alguna pregunta o deseas más información, no dudes en contactarnos.
               </Card.Text>
@@ -36,29 +42,29 @@ const Contacto = () => {
           </Card>
         </Col>
         <Col md={6}>
-          <Card className="tarjeta-info">
-            <Card.Body>
-              <Card.Title>Información de Contacto</Card.Title>
+          <Card>
+            <Card.Body className="tarjeta-info">
+            <div className="titulo-principal titulo-contacto"><img width="30" height="30" className="iconoVeteTit" src="https://img.icons8.com/color/48/veterinarian.png" alt="veterinarian"/> Información de contacto</div>
               <Card.Text>
-                <strong>Dirección:</strong> Calle Ficticia 123, Ciudad, País
+                <strong className="strong-contacto">Dirección:</strong> General Paz 576, San Miguel de Tucumán.
               </Card.Text>
               <Card.Text>
-                <strong>Teléfono:</strong> +123 456 7890
+                <strong className="strong-contacto">Teléfono:</strong> 0381 495-5080
               </Card.Text>
               <Card.Text>
-                <strong>Correo Electrónico:</strong> contacto@veterinariapatitasfelices.com
+                <strong className="strong-contacto">Correo Electrónico:</strong> info@patitasfelices.com
               </Card.Text>
             </Card.Body>
           </Card>
         </Col>
       </Row>
-      <Row>
-        <Col>
-          <Card className="tarjeta-mapa">
-            <Card.Body>
-              <Card.Title>Encuéntranos en el Mapa</Card.Title>
+      <Row className="row-mapa">
+        <Col className="col-mapa">
+          <Card className="card-mapa">
+            <Card.Body className="tarjeta-mapa">
+            <div className="titulo-principal titulo-contacto"><img width="30" height="30" className="iconoVeteTit" src="https://img.icons8.com/color/48/veterinarian.png" alt="veterinarian"/> Encuéntranos en el mapa</div>
               <div className="contenedor-mapa">
-              <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1aNZuQjx1gJNn6qTOYhpYDu06mFsWfcM&ehbc=2E312F" width="640" height="480"></iframe>
+              <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1aNZuQjx1gJNn6qTOYhpYDu06mFsWfcM&ehbc=2E312F" width="100%" height="400px"></iframe>
               </div>
             </Card.Body>
           </Card>

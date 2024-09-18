@@ -11,7 +11,7 @@ const Especialistas = () => {
       profesion: 'Veterinario Especialista en Cirugía',
       descripcion:
         'Con más de 10 años de experiencia en cirugía veterinaria, el Dr. Banderas es conocido por su dedicación y atención al detalle en cada procedimiento.',
-      foto: '../src/assets/drvete1.jpg',
+      foto: '../src/assets/drvete1.webp',
       redes: {
         email: 'antonio.banderas@gmail.com',
         facebook: 'https://www.facebook.com/drantoniobanderas',
@@ -24,9 +24,9 @@ const Especialistas = () => {
       profesion: 'Especialista en Dermatología Veterinaria',
       descripcion:
         'La Dra. Herrera se especializa en el cuidado de la piel y el pelaje de mascotas, ofreciendo tratamientos avanzados para diversas afecciones dermatológicas.',
-      foto: '../src/assets/drvete2.jpg', 
+      foto: '../src/assets/drvete2.webp', 
       redes: {
-        email: 'maria.gomez@gmail.com',
+        email: 'caro.herrera@gmail.com',
         facebook: 'https://www.facebook.com/dracarolinaherrera',
         telefono: '+54 9 381 5287653',
       },

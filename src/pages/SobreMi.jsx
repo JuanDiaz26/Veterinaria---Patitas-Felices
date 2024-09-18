@@ -28,14 +28,14 @@ const SobreMi = () => {
               Estudiante de programacion enfocado en el frontend. Apasionado por aprender y crecer mucho más. 
               </Card.Text>
               <div className="sobreMiRedes">
-                <a href="https://github.com/juan-diaz" target="_blank" rel="noopener noreferrer">
+                <a href="https://github.com/JuanDiaz26" target="_blank" title="Perfil de mi Github" rel="noopener noreferrer">
                   <i className="bi bi-github"></i>
                 </a>
-                <a href="https://www.linkedin.com/in/juan-diaz" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.linkedin.com/in/juangabrieldiaz26/" target="_blank" title="Perfil de mi Linkedin" rel="noopener noreferrer">
                   <i className="bi bi-linkedin"></i>
                 </a>
-                <a href="https://www.facebook.com/juan.diaz" target="_blank" rel="noopener noreferrer">
-                  <i className="bi bi-facebook"></i>
+                <a href="mailto:juanbacanp3s@gmail.com" target="_blank" title="Mi Correo" rel="noopener noreferrer">
+                  <i className="bi bi-envelope-fill"></i>
                 </a>
               </div>
             </Card.Body>

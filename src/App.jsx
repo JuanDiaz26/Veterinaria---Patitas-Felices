@@ -6,7 +6,8 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import DetallePlanes from './pages/DetallePlanes'; 
 import SobreMi from './pages/SobreMi'; 
-import Contacto from './pages/Contacto'; 
+import Contacto from './pages/Contacto';
+import Error from './pages/Error';  
 
 const App = () => {
   return (
@@ -17,7 +18,8 @@ const App = () => {
         <Route path="/" element={<Inicio />} />
         <Route path="/detalle-planes" element={<DetallePlanes />} /> 
         <Route path="/sobre-mi" element={<SobreMi />} />
-        <Route path="/contacto" element={<Contacto />} />  
+        <Route path="/contacto" element={<Contacto />} />
+        <Route path="/error" element={<Error />} />   
       </Routes>
       <Footer />
     </BrowserRouter>
