@@ -55,7 +55,7 @@ const CuponBanner = () => {
   return (
     <div className="promo-banner">
       <h2>¡Completá tus datos y recibí tu cupón de 15% OFF en tu primera compra!</h2>
-      <Button onClick={() => setShowModal(true)}>¡Quiero mi cupón!</Button>
+      <Button className="boton-promo-banner" onClick={() => setShowModal(true)}>¡Quiero mi cupón!</Button>
 
       {/* Mostrar alerta si hay un mensaje */}
       {mostrarAlerta && (

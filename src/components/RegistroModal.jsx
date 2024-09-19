@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form, Alert } from 'react-bootstrap';
-import { FaUser, FaEnvelope, FaPhone } from 'react-icons/fa'; // Asegúrate de que estos íconos están importados correctamente
+import { PersonFill, EnvelopeFill, TelephoneFill } from 'react-bootstrap-icons';
 
 function RegistroModal() {
   // Estado para controlar si el modal está abierto o cerrado
@@ -53,7 +53,7 @@ function RegistroModal() {
             <Form.Group controlId="formBasicNombre">
               <Form.Label>Nombre</Form.Label>
               <div className="d-flex align-items-center">
-                <FaUser className="icono" />
+                <PersonFill className="icono" />
                 <Form.Control
                   type="text"
                   placeholder="Ingresa tu nombre"
@@ -67,7 +67,7 @@ function RegistroModal() {
             <Form.Group controlId="formBasicApellido">
               <Form.Label>Apellido</Form.Label>
               <div className="d-flex align-items-center">
-                <FaUser className="icono" />
+                <PersonFill className="icono" />
                 <Form.Control
                   type="text"
                   placeholder="Ingresa tu apellido"
@@ -81,7 +81,7 @@ function RegistroModal() {
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Correo electrónico</Form.Label>
               <div className="d-flex align-items-center">
-                <FaEnvelope className="icono" />
+                <EnvelopeFill className="icono" />
                 <Form.Control
                   type="email"
                   placeholder="Ingresa tu correo electrónico"
@@ -95,7 +95,7 @@ function RegistroModal() {
             <Form.Group controlId="formBasicTelefono">
               <Form.Label>Teléfono</Form.Label>
               <div className="d-flex align-items-center">
-                <FaPhone className="icono" />
+                <TelephoneFill className="icono" />
                 <Form.Control
                   type="text"
                   placeholder="Ingresa tu número de teléfono"
@@ -107,7 +107,7 @@ function RegistroModal() {
             </Form.Group>
 
             <Form.Group controlId="formBasicTipo">
-              <Form.Label>Registro como</Form.Label>
+              <Form.Label>Me registro como:</Form.Label>
               <Form.Control
                 as="select"
                 value={tipo}

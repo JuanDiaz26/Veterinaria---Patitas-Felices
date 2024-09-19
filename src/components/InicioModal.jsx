@@ -3,10 +3,10 @@ import { Modal, Button, Form, InputGroup } from 'react-bootstrap';
 import { PersonFill, KeyFill } from 'react-bootstrap-icons';
 
 function InicioModal() {
-  // Estado para controlar si el modal está abierto o cerrado
+
   const [mostrar, setMostrar] = useState(false);
 
-  // Funciones para abrir y cerrar el modal
+ 
   const cerrarModal = () => setMostrar(false);
   const abrirModal = () => setMostrar(true);
 
@@ -43,7 +43,7 @@ function InicioModal() {
             </Form.Group>
 
             {/* Botón para iniciar sesión */}
-            <Button variant="primary" type="submit" className="w-100">
+            <Button variant="primary" type="submit">
               Iniciar Sesión
             </Button>
           </Form>

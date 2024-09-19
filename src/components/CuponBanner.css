@@ -22,23 +22,6 @@
     margin-bottom: 15px;
   }
   
-  .promo-button {
-    background-color: white;
-    color: #3b82f6;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    border-radius: 25px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  .promo-button:hover {
-    background-color: #e5e7eb;
-    color: #2563eb;
-  }
-  
   @media (max-width: 768px) {
     .promo-descripcion {
       font-size: 1.2rem;
@@ -131,4 +114,20 @@ form {
 
 .alerta-cupon {
   margin-top: 15px;
+}
+
+.boton-promo-banner {
+  background-color: rgb(255, 255, 255) !important;
+  margin-top: 3px;
+  color: #3b82f6 !important;
+  font-weight: bold !important;
+  border: 5px solid #0066ff  !important;
+  border-radius: 30px !important;
+}
+
+.boton-promo-banner:hover {
+  background-color: #0066ff  !important;
+  color: white !important;
+  font-weight: bold !important;
+  border: 5px solid #0066ff  !important;
 }
