@@ -1,12 +1,22 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Logo from '../assets/logo-veterinaria.webp';
 import './Navbar.css';
+import InicioModal from './InicioModal';
+import RegistroModal from './RegistroModal';
+
 
 const Navbar = () => {
+
+  // Estados para controlar la visibilidad de cada modal
+  const [mostrarRegistro, setMostrarRegistro] = useState(false);
+  const [mostrarInicio, setMostrarInicio] = useState(false);
+
+  const cerrarRegistro = () => setMostrarRegistro(false);
+  const cerrarInicio = () => setMostrarInicio(false);
 
   const offcanvasRef = useRef(null);
 
@@ -65,12 +75,10 @@ const Navbar = () => {
           </li>
           </div> 
           <div className="d-flex ContenedorSesion">
-            <Link className="btn BotonRegistro me-2" to="/registrarse">
-              Registrarse
-            </Link>
-            <Link className="btn BotonInicio" to="/iniciar-sesion">
-              Iniciar Sesión
-            </Link>
+
+      {/* Modales */}
+      <RegistroModal mostrar={mostrarRegistro} cerrarModal={cerrarRegistro} />
+      <InicioModal mostrar={mostrarInicio} cerrarModal={cerrarInicio} />
           </div>
         </ul>
       </div>

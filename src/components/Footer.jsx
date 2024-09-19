@@ -42,15 +42,15 @@ const Footer = () => {
         </li>
         <li>
           <Scissors className="icono-footer not-right" />
-          <Link to="/peluqueria">Peluquería</Link>
+          <Link to="/Error">Peluquería</Link>
         </li>
         <li>
           <PeopleFill className="icono-footer not-right" />
-          <Link to="/adopciones">Adopciones</Link>
+          <Link to="/Error">Adopciones</Link>
         </li>
         <li>
           <CartFill className="icono-footer not-right" />
-          <Link to="/nuestra-tienda">Nuestra tienda</Link>
+          <Link to="/Error">Nuestra tienda</Link>
         </li>
       </ul>
           </div>

@@ -86,27 +86,28 @@
     margin-right: 50px;
 }
 
-
 .BotonInicio {
-  background-color: #10b981;
-  color: white;
-  border: none;
-  font-weight: bold;
-}
-
+    background-color: #10b981 !important;
+    color: white;
+    border: none;
+    font-weight: bold;
+  }
+  
 .BotonInicio:hover {
-  background-color: #0d7e58; 
-  color: white;
-}
+    background-color: #0d7e58 !important; 
+    color: white;
+  }
 
 .BotonRegistro {
-  border-color: rgba(23, 71, 157, 1);
+  border: 2px solid rgba(23, 71, 157, 1);
   color: rgba(23, 71, 157, 1);
+  background-color: white !important;
   font-weight: bold;
+  margin-right: 10px;
 }
 
 .BotonRegistro:hover {
-  background-color: rgba(23, 71, 157, 1);
+  background-color: rgba(23, 71, 157, 1) !important;
   color: white;
 }
 
