@@ -1,29 +1,65 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form, Alert } from 'react-bootstrap';
-import { PersonFill, EnvelopeFill, TelephoneFill } from 'react-bootstrap-icons';
+import { PersonFill, EnvelopeFill, TelephoneFill, LockFill } from 'react-bootstrap-icons';
 
 function RegistroModal() {
-  // Estado para controlar si el modal está abierto o cerrado
   const [mostrar, setMostrar] = useState(false);
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
   const [correo, setCorreo] = useState('');
   const [telefono, setTelefono] = useState('');
-  const [tipo, setTipo] = useState('cliente');
+  const [contraseña, setContraseña] = useState('');
+  const [confirmarContraseña, setConfirmarContraseña] = useState('');
   const [mensaje, setMensaje] = useState('');
+  const [errores, setErrores] = useState({});
 
-  // Funciones para abrir y cerrar el modal
   const abrirModal = () => setMostrar(true);
   const cerrarModal = () => setMostrar(false);
 
+  const validarFormulario = () => {
+    const errores = {};
+
+    // Validación de nombre y apellido (solo letras)
+    const soloLetras = /^[A-Za-z]+$/;
+    if (!soloLetras.test(nombre)) {
+      errores.nombre = 'El nombre solo debe contener letras.';
+    }
+    if (!soloLetras.test(apellido)) {
+      errores.apellido = 'El apellido solo debe contener letras.';
+    }
+
+    // Validación de correo
+    const formatoCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formatoCorreo.test(correo)) {
+      errores.correo = 'El correo electrónico no tiene un formato válido.';
+    }
+
+    // Validación de contraseña (entre 8 y 16 caracteres, con al menos un número y un carácter especial)
+    const formatoContraseña = /^(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,16}$/;
+    if (!formatoContraseña.test(contraseña)) {
+      errores.contraseña = 'La contraseña debe tener entre 8 y 16 caracteres, con al menos un número y un carácter especial.';
+    }
+
+    // Validación de confirmación de contraseña (debe coincidir)
+    if (contraseña !== confirmarContraseña) {
+      errores.confirmarContraseña = 'Las contraseñas no coinciden.';
+    }
+
+    return errores;
+  };
+
   const manejarEnvio = (e) => {
     e.preventDefault();
+    const erroresValidacion = validarFormulario();
 
-    // Aquí es donde manejarías el envío del formulario y el correo electrónico
-    // Por ahora solo mostraremos un mensaje de alerta
+    if (Object.keys(erroresValidacion).length > 0) {
+      setErrores(erroresValidacion);
+      return;
+    }
+
+    setErrores({});
     setMensaje('En breve te contactaremos para aprobar tu registro. ¡Gracias!');
 
-    // Cerrar el modal después del envío (opcional)
     setTimeout(() => {
       cerrarModal();
       setMensaje('');
@@ -31,25 +67,32 @@ function RegistroModal() {
       setApellido('');
       setCorreo('');
       setTelefono('');
-      setTipo('cliente');
+      setContraseña('');
+      setConfirmarContraseña('');
     }, 3000);
   };
 
   return (
     <>
-      {/* Botón para abrir el modal */}
       <Button onClick={abrirModal} className="btn BotonRegistro">
         Registro
       </Button>
 
-      {/* Modal para registro */}
       <Modal show={mostrar} onHide={cerrarModal} centered>
         <Modal.Header closeButton>
           <Modal.Title>Registro</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {mensaje && <Alert variant="success">{mensaje}</Alert>}
+          {Object.keys(errores).length > 0 && (
+            <Alert variant="danger">
+              {Object.values(errores).map((error, idx) => (
+                <div key={idx}>{error}</div>
+              ))}
+            </Alert>
+          )}
           <Form onSubmit={manejarEnvio}>
+            {/* Campo Nombre */}
             <Form.Group controlId="formBasicNombre">
               <Form.Label>Nombre</Form.Label>
               <div className="d-flex align-items-center">
@@ -64,6 +107,7 @@ function RegistroModal() {
               </div>
             </Form.Group>
 
+            {/* Campo Apellido */}
             <Form.Group controlId="formBasicApellido">
               <Form.Label>Apellido</Form.Label>
               <div className="d-flex align-items-center">
@@ -78,6 +122,7 @@ function RegistroModal() {
               </div>
             </Form.Group>
 
+            {/* Campo Correo */}
             <Form.Group controlId="formBasicEmail">
               <Form.Label>Correo electrónico</Form.Label>
               <div className="d-flex align-items-center">
@@ -92,6 +137,7 @@ function RegistroModal() {
               </div>
             </Form.Group>
 
+            {/* Campo Teléfono */}
             <Form.Group controlId="formBasicTelefono">
               <Form.Label>Teléfono</Form.Label>
               <div className="d-flex align-items-center">
@@ -106,17 +152,34 @@ function RegistroModal() {
               </div>
             </Form.Group>
 
-            <Form.Group controlId="formBasicTipo">
-              <Form.Label>Me registro como:</Form.Label>
-              <Form.Control
-                as="select"
-                value={tipo}
-                onChange={(e) => setTipo(e.target.value)}
-                required
-              >
-                <option value="cliente">Cliente/Paciente</option>
-                <option value="medico">Médico</option>
-              </Form.Control>
+            {/* Campo Contraseña */}
+            <Form.Group controlId="formBasicContraseña">
+              <Form.Label>Contraseña</Form.Label>
+              <div className="d-flex align-items-center">
+                <LockFill className="icono" />
+                <Form.Control
+                  type="password"
+                  placeholder="Ingresa una contraseña segura"
+                  value={contraseña}
+                  onChange={(e) => setContraseña(e.target.value)}
+                  required
+                />
+              </div>
+            </Form.Group>
+
+            {/* Campo Confirmar Contraseña */}
+            <Form.Group controlId="formBasicConfirmarContraseña">
+              <Form.Label>Confirmar Contraseña</Form.Label>
+              <div className="d-flex align-items-center">
+                <LockFill className="icono" />
+                <Form.Control
+                  type="password"
+                  placeholder="Repite la contraseña"
+                  value={confirmarContraseña}
+                  onChange={(e) => setConfirmarContraseña(e.target.value)}
+                  required
+                />
+              </div>
             </Form.Group>
 
             <Button variant="primary" type="submit">
