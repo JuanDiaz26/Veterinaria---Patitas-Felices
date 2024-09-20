@@ -1,8 +1,12 @@
 .contenedor-contacto {
-    padding: 15px;
+    padding: 30px 15px;
     background-color: #f5f5f5;
     width: 95%;
     margin: 20px auto;
+}
+
+.card-body-contacto {
+    padding: 0 5px;
 }
 
 .tarjeta-info {
@@ -33,7 +37,7 @@
 }
 
 .card-mapa {
-    padding: 10px;
+    padding: 0px 10px;
 }
 
 .contenedor-mapa {
@@ -42,7 +46,7 @@
 }
 
 .titulo-contacto {
-    margin-bottom: 5px;
+    margin: 0px 0 5px;
 }
 
 @media (min-width: 768px) {
@@ -55,7 +59,7 @@
     }
 
     .card-mapa {
-        padding: 40px;
+        padding: 30px;
     }
     
 }
@@ -64,4 +68,5 @@
     .row-mapa {
         width: 60%;
     }
+
 }

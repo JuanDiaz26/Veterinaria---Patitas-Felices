@@ -13,7 +13,7 @@ const Contacto = () => {
       <Row className="mb-4">
         <Col md={6}>
           <Card className="tarjeta-formulario">
-            <Card.Body>
+            <Card.Body className="card-body-contacto">
             <div className="titulo-principal titulo-contacto"><img width="30" height="30" className="iconoVeteTit" src="https://img.icons8.com/color/48/veterinarian.png" alt="veterinarian"/> Contacta con nosotros</div>
               <Card.Text>
                 Si tienes alguna pregunta o deseas más información, no dudes en contactarnos.
@@ -43,7 +43,7 @@ const Contacto = () => {
         </Col>
         <Col md={6}>
           <Card>
-            <Card.Body className="tarjeta-info">
+            <Card.Body className="tarjeta-info card-body-contacto">
             <div className="titulo-principal titulo-contacto"><img width="30" height="30" className="iconoVeteTit" src="https://img.icons8.com/color/48/veterinarian.png" alt="veterinarian"/> Información de contacto</div>
               <Card.Text>
                 <strong className="strong-contacto">Dirección:</strong> General Paz 576, San Miguel de Tucumán.
