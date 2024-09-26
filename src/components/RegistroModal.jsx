@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form, Alert } from 'react-bootstrap';
 import { PersonFill, EnvelopeFill, TelephoneFill, LockFill } from 'react-bootstrap-icons';
+import axios from 'axios';
 
 function RegistroModal() {
   const [mostrar, setMostrar] = useState(false);
@@ -11,6 +12,7 @@ function RegistroModal() {
   const [contraseña, setContraseña] = useState('');
   const [confirmarContraseña, setConfirmarContraseña] = useState('');
   const [mensaje, setMensaje] = useState('');
+  const [colorMensaje, setColorMensaje] = useState(''); // Para manejar el color de los mensajes
   const [errores, setErrores] = useState({});
 
   const abrirModal = () => setMostrar(true);
@@ -48,29 +50,60 @@ function RegistroModal() {
     return errores;
   };
 
-  const manejarEnvio = (e) => {
+  const manejarEnvio = async (e) => {
     e.preventDefault();
     const erroresValidacion = validarFormulario();
-
+  
     if (Object.keys(erroresValidacion).length > 0) {
       setErrores(erroresValidacion);
       return;
     }
-
+  
     setErrores({});
-    setMensaje('En breve te contactaremos para aprobar tu registro. ¡Gracias!');
+    
+    const pacienteData = {
+      nombre,
+      apellido,
+      correo,
+      telefono,
+      contraseña,
+      confirmarContraseña // Asegúrate de enviar este campo también
+    };
+  
+    try {
+      const response = await axios.post('http://localhost:5000/api/pacientes/registro', pacienteData);
+      setMensaje(response.data.msg); // Muestra mensaje de éxito
+      // Limpiar campos si es necesario
+      setTimeout(() => {
+        cerrarModal();
+        setMensaje('');
+        setNombre('');
+        setApellido('');
+        setCorreo('');
+        setTelefono('');
+        setContraseña('');
+        setConfirmarContraseña('');
+      }, 3000);
+    
+    } catch (error) {
+      console.error(error); // Agrega esto para ver el error completo en la consola
+      if (error.response) {
+        const { errores, msg } = error.response.data;
+        if (errores && Array.isArray(errores)) {
+          setMensaje(errores.map(err => err.msg).join(', '));
+        } else if (msg) {
+          setMensaje(msg);
+        } else {
+          setMensaje('Error en el registro. Intenta nuevamente.');
+        }
+      } else if (error.request) {
+        setMensaje('No se pudo conectar con el servidor. Verifica tu conexión.');
+      } else {
+        setMensaje('Ocurrió un error desconocido. Intenta nuevamente.');
+      }
+    }
+};
 
-    setTimeout(() => {
-      cerrarModal();
-      setMensaje('');
-      setNombre('');
-      setApellido('');
-      setCorreo('');
-      setTelefono('');
-      setContraseña('');
-      setConfirmarContraseña('');
-    }, 3000);
-  };
 
   return (
     <>
@@ -83,7 +116,7 @@ function RegistroModal() {
           <Modal.Title>Registro</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {mensaje && <Alert variant="success">{mensaje}</Alert>}
+          {mensaje && <Alert variant="light" style={{ color: colorMensaje }}>{mensaje}</Alert>}
           {Object.keys(errores).length > 0 && (
             <Alert variant="danger">
               {Object.values(errores).map((error, idx) => (
