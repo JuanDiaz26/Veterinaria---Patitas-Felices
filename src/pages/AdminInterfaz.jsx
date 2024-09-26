@@ -1,12 +1,14 @@
-// src/components/Admin/AdminInterfaz.jsx
 import React, { useEffect, useState } from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
 import axios from 'axios';
 
-function AdminInterfaz() {
+const AdminInterfaz = ({ iniciarSesionComoAdmin }) => {
   const [turnos, setTurnos] = useState([]);
 
   useEffect(() => {
+    // Marcar al usuario como administrador al entrar en la interfaz de administración
+    iniciarSesionComoAdmin();
+
     const fetchTurnos = async () => {
       try {
         const respuesta = await axios.get('http://localhost:5000/api/turnos'); // Asegúrate de que esta sea la ruta correcta
@@ -17,7 +19,7 @@ function AdminInterfaz() {
     };
 
     fetchTurnos();
-  }, []);
+  }, [iniciarSesionComoAdmin]);
 
   return (
     <div className="container mt-4">
@@ -44,6 +46,6 @@ function AdminInterfaz() {
       </Card>
     </div>
   );
-}
+};
 
 export default AdminInterfaz;
