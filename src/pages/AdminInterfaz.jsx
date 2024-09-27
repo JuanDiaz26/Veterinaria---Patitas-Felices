@@ -22,7 +22,7 @@ const AdminInterfaz = ({ iniciarSesionComoAdmin }) => {
   }, [iniciarSesionComoAdmin]);
 
   return (
-    <div className="container mt-4">
+    <div className="container mt-5">
       <Card>
         <Card.Header>Bienvenido, Administrador</Card.Header>
         <Card.Body>

@@ -23,6 +23,7 @@ const App = () => {
     setIsAuthenticated(true); // El usuario está autenticado
     setEsAdmin(true); // El usuario es un administrador
   };
+
   return (
     <BrowserRouter>
       <TopBar />
@@ -34,11 +35,12 @@ const App = () => {
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/error" element={<Error />} />  
         <Route path="/admin" element={<AdminInterfaz iniciarSesionComoAdmin={iniciarSesionComoAdmin} />} />
-        </Routes>
-      <Footer />
+      </Routes>
+
+      {/* Condicional para no mostrar el Footer solo en la ruta '/admin' */}
+      {window.location.pathname !== '/admin' && <Footer />}
     </BrowserRouter>
   );
 };
 
 export default App;
-

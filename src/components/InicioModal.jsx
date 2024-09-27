@@ -48,7 +48,7 @@ function InicioModal() {
         } else {
           navigate('/paciente'); // Redirigir a la interfaz del paciente
         }
-      }, 2500);
+      }, 1500);
   
     } catch (error) {
       setMensaje(error.response.data.msg || 'Error en el inicio de sesión');

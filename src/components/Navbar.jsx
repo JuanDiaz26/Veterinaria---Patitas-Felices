@@ -32,25 +32,28 @@ const Navbar = ({ esAdmin, cerrarSesion }) => {
   const confirmarCerrarSesion = () => {
     cerrarSesion();
     cerrarModalConfirmacion();
-    navigate('/'); // Redirige al inicio
-  };
-
-  // Función para manejar el clic en "Inicio"
-  const handleInicioClick = () => {
-    if (esAdmin) {
-      mostrarModalConfirmacion(); // Mostrar el modal si es admin
-    } else {
-      navigate('/'); // Redirigir al inicio si no es admin
-    }
+    navigate('/'); 
   };
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <div className="container-fluid d-flex justify-content-between">
-        <Link className="navbar-brand" to="/">
+      {esAdmin ? (
+                  <>
+                    <Link className="navbar-brand"> 
+                    <img className="logo-clinica" src={Logo} alt="Logo Veterinaria Patitas Felices" />
+                    <h1 className="titulo-veterinaria">Patitas Felices</h1>
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                           <Link className="navbar-brand" to="/">
           <img className="logo-clinica" src={Logo} alt="Logo Veterinaria Patitas Felices" />
           <h1 className="titulo-veterinaria">Patitas Felices</h1>
         </Link>
+                  </>
+                )}
+
         <button
           className="navbar-toggler custom-toggler"
           type="button"
@@ -82,11 +85,6 @@ const Navbar = ({ esAdmin, cerrarSesion }) => {
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-center flex-grow-1 pe-3">
               <div className="divnav">
-                <li className="nav-item">
-                  <Link className="nav-link" to="#" onClick={handleInicioClick}>
-                    Inicio
-                  </Link>
-                </li>
                 {esAdmin ? (
                   <>
                     <li className="nav-item">
@@ -98,6 +96,11 @@ const Navbar = ({ esAdmin, cerrarSesion }) => {
                   </>
                 ) : (
                   <>
+                    <li className="nav-item">
+                      <Link className="nav-link" to="/" onClick={closeOffcanvas}>
+                        Inicio
+                      </Link>
+                    </li>
                     <li className="nav-item">
                       <Link className="nav-link" to="/sobre-mi" onClick={closeOffcanvas}>Sobre Mi</Link>
                     </li>
