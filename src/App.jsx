@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'; 
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Inicio from './pages/Inicio'; 
 import TopBar from './components/TopBar';
@@ -9,25 +9,33 @@ import SobreMi from './pages/SobreMi';
 import Contacto from './pages/Contacto';
 import Error from './pages/Error';  
 import AdminInterfaz from './pages/AdminInterfaz';
+import PacienteInterfaz from './pages/PacienteInterfaz';
 
 const App = () => {
-  const [esAdmin, setEsAdmin] = useState(false); // Estado para controlar si el usuario es admin
-  const [isAuthenticated, setIsAuthenticated] = useState(false); // Estado para saber si el usuario está autenticado
+  const [esAdmin, setEsAdmin] = useState(false);
+  const [esPaciente, setEsPaciente] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const cerrarSesion = () => {
-    setIsAuthenticated(false); // Cambia el estado de autenticación
-    setEsAdmin(false); // También puedes limpiar el estado de admin
+    setIsAuthenticated(false);
+    setEsAdmin(false);
+    setEsPaciente(false);
   };
 
   const iniciarSesionComoAdmin = () => {
-    setIsAuthenticated(true); // El usuario está autenticado
-    setEsAdmin(true); // El usuario es un administrador
+    setIsAuthenticated(true);
+    setEsAdmin(true);
+  };
+
+  const iniciarSesionComoPaciente = () => {
+    setIsAuthenticated(true);
+    setEsPaciente(true);
   };
 
   return (
     <BrowserRouter>
       <TopBar />
-      <Navbar esAdmin={esAdmin} cerrarSesion={cerrarSesion} />
+      <Navbar esAdmin={esAdmin} esPaciente={esPaciente} cerrarSesion={cerrarSesion} />
       <Routes>
         <Route path="/" element={<Inicio />} />
         <Route path="/detalle-planes" element={<DetallePlanes />} /> 
@@ -35,10 +43,9 @@ const App = () => {
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/error" element={<Error />} />  
         <Route path="/admin" element={<AdminInterfaz iniciarSesionComoAdmin={iniciarSesionComoAdmin} />} />
+        <Route path="/paciente" element={<PacienteInterfaz iniciarSesionComoPaciente={iniciarSesionComoPaciente} />} />
       </Routes>
-
-      {/* Condicional para no mostrar el Footer solo en la ruta '/admin' */}
-      {window.location.pathname !== '/admin' && <Footer />}
+      {window.location.pathname !== '/admin' && window.location.pathname !== '/paciente' && <Footer />}
     </BrowserRouter>
   );
 };

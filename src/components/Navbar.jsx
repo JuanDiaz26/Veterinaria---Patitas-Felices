@@ -9,7 +9,7 @@ import './Navbar.css';
 import InicioModal from './InicioModal';
 import RegistroModal from './RegistroModal';
 
-const Navbar = ({ esAdmin, cerrarSesion }) => {
+const Navbar = ({ esAdmin, esPaciente, cerrarSesion }) => {
   const [mostrarRegistro, setMostrarRegistro] = useState(false);
   const [mostrarInicio, setMostrarInicio] = useState(false);
   const [mostrarConfirmacion, setMostrarConfirmacion] = useState(false);
@@ -38,21 +38,19 @@ const Navbar = ({ esAdmin, cerrarSesion }) => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
       <div className="container-fluid d-flex justify-content-between">
-      {esAdmin ? (
-                  <>
-                    <Link className="navbar-brand"> 
-                    <img className="logo-clinica" src={Logo} alt="Logo Veterinaria Patitas Felices" />
-                    <h1 className="titulo-veterinaria">Patitas Felices</h1>
-                    </Link>
-                  </>
-                ) : (
-                  <>
-                           <Link className="navbar-brand" to="/">
-          <img className="logo-clinica" src={Logo} alt="Logo Veterinaria Patitas Felices" />
-          <h1 className="titulo-veterinaria">Patitas Felices</h1>
-        </Link>
-                  </>
-                )}
+      {esAdmin || esPaciente ? (
+      // Si es admin o paciente, solo muestra la imagen y el texto sin enlace
+      <div className="navbar-brand">
+        <img className="logo-clinica" src={Logo} alt="Logo Veterinaria Patitas Felices" />
+        <h1 className="titulo-veterinaria">Patitas Felices</h1>
+      </div>
+    ) : (
+      // Si no es admin ni paciente, se puede hacer clic para volver al inicio
+      <Link className="navbar-brand" to="/">
+        <img className="logo-clinica" src={Logo} alt="Logo Veterinaria Patitas Felices" />
+        <h1 className="titulo-veterinaria">Patitas Felices</h1>
+      </Link>
+    )}
 
         <button
           className="navbar-toggler custom-toggler"
@@ -85,7 +83,7 @@ const Navbar = ({ esAdmin, cerrarSesion }) => {
           <div className="offcanvas-body">
             <ul className="navbar-nav justify-content-center flex-grow-1 pe-3">
               <div className="divnav">
-                {esAdmin ? (
+              {esAdmin ? (
                   <>
                     <li className="nav-item">
                       <Link className="nav-link" to="/administrar-pacientes" onClick={closeOffcanvas}>Administrar Pacientes</Link>
@@ -93,13 +91,24 @@ const Navbar = ({ esAdmin, cerrarSesion }) => {
                     <li className="nav-item">
                       <Link className="nav-link" to="/administrar-turnos" onClick={closeOffcanvas}>Administrar Turnos</Link>
                     </li>
+                    {/* Aquí se agrega el botón de cerrar sesión para admin */}
+                    <li className="nav-item">
+                      <button className="nav-link btn" onClick={mostrarModalConfirmacion}>
+                        <i className="bi bi-box-arrow-right"></i> Cerrar Sesión
+                      </button>
+                    </li>
                   </>
+                ) : esPaciente ? (
+                  // Solo el botón de cerrar sesión para pacientes
+                  <li className="nav-item">
+                    <button className="nav-link btn" onClick={mostrarModalConfirmacion}>
+                      <i className="bi bi-box-arrow-right"></i> Cerrar Sesión
+                    </button>
+                  </li>
                 ) : (
                   <>
                     <li className="nav-item">
-                      <Link className="nav-link" to="/" onClick={closeOffcanvas}>
-                        Inicio
-                      </Link>
+                      <Link className="nav-link" to="/" onClick={closeOffcanvas}>Inicio</Link>
                     </li>
                     <li className="nav-item">
                       <Link className="nav-link" to="/sobre-mi" onClick={closeOffcanvas}>Sobre Mi</Link>
@@ -111,11 +120,7 @@ const Navbar = ({ esAdmin, cerrarSesion }) => {
                 )}
               </div>
               <div className="d-flex ContenedorSesion">
-                {esAdmin ? (
-                  <button className="nav-link btn" onClick={mostrarModalConfirmacion}>
-                    <i className="bi bi-box-arrow-right"></i> Cerrar Sesión
-                  </button>
-                ) : (
+                {esAdmin || esPaciente ? null : (
                   <>
                     <RegistroModal mostrar={mostrarRegistro} cerrarModal={() => setMostrarRegistro(false)} />
                     <InicioModal mostrar={mostrarInicio} cerrarModal={() => setMostrarInicio(false)} />

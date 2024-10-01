@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Card, Button, Form } from 'react-bootstrap';
 import emailjs from 'emailjs-com';
 
-const PacienteInterfaz = () => {
+const PacienteInterfaz = ({ iniciarSesionComoPaciente }) => {
   const [especialista, setEspecialista] = useState('');
   const [fecha, setFecha] = useState('');
   const [motivo, setMotivo] = useState('');
   const [mensaje, setMensaje] = useState('');
+
+  // Llama a iniciarSesionComoPaciente al montar el componente
+  useEffect(() => {
+    iniciarSesionComoPaciente();
+  }, [iniciarSesionComoPaciente]);
 
   const enviarTurno = (e) => {
     e.preventDefault();
@@ -16,13 +21,12 @@ const PacienteInterfaz = () => {
       return;
     }
 
-    // Datos para enviar el email usando EmailJS
     const templateParams = {
       especialista,
       fecha,
       motivo,
       mensaje,
-      to_email: 'email-del-paciente@ejemplo.com' // Aquí debes colocar el email del paciente real
+      to_email: 'email-del-paciente@ejemplo.com' // Debes colocar el email del paciente real
     };
 
     emailjs
