@@ -92,7 +92,7 @@ const Navbar = ({ esAdmin, esPaciente, cerrarSesion }) => {
                       <Link className="nav-link" to="/administrar-turnos" onClick={closeOffcanvas}>Administrar Turnos</Link>
                     </li>
                     {/* Aquí se agrega el botón de cerrar sesión para admin */}
-                    <li className="nav-item">
+                    <li className="nav-item botonCerrarAdm">
                       <button className="nav-link btn" onClick={mostrarModalConfirmacion}>
                         <i className="bi bi-box-arrow-right"></i> Cerrar Sesión
                       </button>
@@ -100,7 +100,7 @@ const Navbar = ({ esAdmin, esPaciente, cerrarSesion }) => {
                   </>
                 ) : esPaciente ? (
                   // Solo el botón de cerrar sesión para pacientes
-                  <li className="nav-item">
+                  <li className="nav-item botonCerrar">
                     <button className="nav-link btn" onClick={mostrarModalConfirmacion}>
                       <i className="bi bi-box-arrow-right"></i> Cerrar Sesión
                     </button>
