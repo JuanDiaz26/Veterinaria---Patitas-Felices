@@ -1,19 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { Card, Button, Form } from 'react-bootstrap';
-import emailjs from 'emailjs-com';
+import axios from 'axios';
 
-const PacienteInterfaz = ({ iniciarSesionComoPaciente }) => {
+const MEDICOS = [
+  { id: 'medico1', nombre: 'Dr. Antonio Banderas' },
+  { id: 'medico2', nombre: 'Dra. Carolina Herrera' },
+];
+
+const PacienteInterfaz = ({ iniciarSesionComoPaciente, pacienteId }) => {
   const [especialista, setEspecialista] = useState('');
   const [fecha, setFecha] = useState('');
   const [motivo, setMotivo] = useState('');
   const [mensaje, setMensaje] = useState('');
 
-  // Llama a iniciarSesionComoPaciente al montar el componente
   useEffect(() => {
     iniciarSesionComoPaciente();
   }, [iniciarSesionComoPaciente]);
 
-  const enviarTurno = (e) => {
+  const enviarTurno = async (e) => {
     e.preventDefault();
 
     if (!especialista || !fecha || !motivo) {
@@ -21,29 +25,23 @@ const PacienteInterfaz = ({ iniciarSesionComoPaciente }) => {
       return;
     }
 
-    const templateParams = {
-      especialista,
+    const turnoData = {
+      pacienteId,
+      medicoId: especialista, // Aquí usamos el ID del médico fijo
       fecha,
-      motivo,
-      mensaje,
-      to_email: 'email-del-paciente@ejemplo.com' // Debes colocar el email del paciente real
     };
 
-    emailjs
-      .send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams, 'YOUR_USER_ID')
-      .then((response) => {
-        console.log('SUCCESS!', response.status, response.text);
-        alert('El turno fue solicitado exitosamente. Te llegará un correo de confirmación.');
-        // Resetear el formulario después de enviar
-        setEspecialista('');
-        setFecha('');
-        setMotivo('');
-        setMensaje('');
-      })
-      .catch((err) => {
-        console.error('FAILED...', err);
-        alert('Hubo un error al solicitar el turno. Inténtalo de nuevo.');
-      });
+    try {
+      await axios.post('http://localhost:5000/api/turnos/crear', turnoData);
+      alert('El turno fue solicitado exitosamente.');
+      setEspecialista('');
+      setFecha('');
+      setMotivo('');
+      setMensaje('');
+    } catch (error) {
+      console.error('Error al solicitar el turno:', error);
+      alert('Hubo un error al solicitar el turno. Inténtalo de nuevo.');
+    }
   };
 
   return (
@@ -51,36 +49,23 @@ const PacienteInterfaz = ({ iniciarSesionComoPaciente }) => {
       <h2>Pedir Turno</h2>
       <Form onSubmit={enviarTurno}>
         <div className="row">
-          <div className="col-md-6">
-            <Card className="mb-4">
-              <Card.Body>
-                <Card.Title>Dr. Antonio Banderas</Card.Title>
-                <Form.Check 
-                  type="radio" 
-                  label="Seleccionar Dr. Antonio Banderas" 
-                  name="especialista" 
-                  value="Dr. Antonio Banderas"
-                  checked={especialista === 'Dr. Antonio Banderas'}
-                  onChange={(e) => setEspecialista(e.target.value)}
-                />
-              </Card.Body>
-            </Card>
-          </div>
-          <div className="col-md-6">
-            <Card className="mb-4">
-              <Card.Body>
-                <Card.Title>Dra. Carolina Herrera</Card.Title>
-                <Form.Check 
-                  type="radio" 
-                  label="Seleccionar Dra. Carolina Herrera" 
-                  name="especialista" 
-                  value="Dra. Carolina Herrera"
-                  checked={especialista === 'Dra. Carolina Herrera'}
-                  onChange={(e) => setEspecialista(e.target.value)}
-                />
-              </Card.Body>
-            </Card>
-          </div>
+          {MEDICOS.map(medico => (
+            <div className="col-md-6" key={medico.id}>
+              <Card className="mb-4">
+                <Card.Body>
+                  <Card.Title>{medico.nombre}</Card.Title>
+                  <Form.Check 
+                    type="radio" 
+                    label={`Seleccionar ${medico.nombre}`} 
+                    name="especialista" 
+                    value={medico.id}
+                    checked={especialista === medico.id}
+                    onChange={(e) => setEspecialista(e.target.value)}
+                  />
+                </Card.Body>
+              </Card>
+            </div>
+          ))}
         </div>
 
         <Form.Group controlId="fecha">
